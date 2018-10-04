@@ -19,6 +19,7 @@ import { ScrathGamePage } from '../pages/scrath-game/scrath-game';
 import { TicketPage } from '../pages/ticket/ticket';
 import { FruityGamePage } from '../pages/fruity-game/fruity-game';
 import { HttpClient,HttpClientModule } from '@angular/common/http'
+import { EditPage } from '../pages/edit/edit';
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +34,8 @@ import { HttpClient,HttpClientModule } from '@angular/common/http'
     TabsPage,
     ScrathGamePage,
     TicketPage,
-    FruityGamePage
+    FruityGamePage,
+    EditPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { HttpClient,HttpClientModule } from '@angular/common/http'
     TabsPage,
     ScrathGamePage,
     TicketPage,
-    FruityGamePage
+    FruityGamePage,
+    EditPage
   ],
   providers: [
     StatusBar,

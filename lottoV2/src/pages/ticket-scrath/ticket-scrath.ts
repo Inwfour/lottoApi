@@ -38,4 +38,7 @@ export class TicketScrathPage {
     });
   }
 
+  NextList(){
+    this.navCtrl.push(TicketSlotPage);
+  }
 }

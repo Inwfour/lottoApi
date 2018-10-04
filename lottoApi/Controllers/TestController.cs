@@ -46,5 +46,17 @@ namespace lottoApi.Controllers
         {
             Collection.DeleteOne(x => x.Id == id);
         }
+
+        [HttpPost("[action]")]
+        public void Edit([FromBody]Test request)
+        {
+            Collection.ReplaceOne(x => x.Id == request.Id, request);
+        }
+
+        [HttpGet("[action]/{id}")]
+        public Test Get(string id)
+        {
+            return Collection.Find(x => x.Id == id).FirstOrDefault();
+        }
     }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import { Test,GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
+import { EditPage } from '../edit/edit';
 /**
  * Generated class for the TicketSlotPage page.
  *
@@ -17,11 +18,18 @@ import { HttpClient,HttpHeaders } from '@angular/common/http'
 export class TicketSlotPage {
 test:Test;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient,public alertCtrl:AlertController) {
+    
   }
 
+  ionViewWillEnter() {
+    this.http.get<Test>(GlobalVarible.host + "/api/Test/List")
+  .subscribe((data) => {
+    this.test = data;
+  });
+}
 
   ionViewDidLoad() {
-        this.http.get<Test>(GlobalVarible.host + "/api/Test/List")
+      this.http.get<Test>(GlobalVarible.host + "/api/Test/List")
     .subscribe((data) => {
       this.test = data;
     });
@@ -50,5 +58,7 @@ test:Test;
     });
     confirm.present();
   }
-
+  Edit(id: string) {
+    this.navCtrl.push(EditPage, {idapi:id})
+  }
 }
