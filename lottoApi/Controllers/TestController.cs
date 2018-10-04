@@ -40,5 +40,11 @@ namespace lottoApi.Controllers
             request.Id = Guid.NewGuid().ToString();
             Collection.InsertOne(request);
         }
+
+        [HttpPost("[action]/{id}")]
+        public void Delete(string id)
+        {
+            Collection.DeleteOne(x => x.Id == id);
+        }
     }
 }
