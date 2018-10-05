@@ -4,6 +4,7 @@ import { LoginPage } from '../login/login';
 import { ScrathGamePage } from '../scrath-game/scrath-game';
 import { TicketPage } from '../ticket/ticket';
 import { FruityGamePage } from '../fruity-game/fruity-game';
+import { TicketScrathPage } from '../ticket-scrath/ticket-scrath';
 
 @Component({
   selector: 'page-home',
@@ -29,6 +30,10 @@ export class HomePage {
 
   nextFruity(){
     this.navCtrl.push(FruityGamePage);
+  }
+
+  register(){
+    this.navCtrl.push(TicketScrathPage);
   }
 
 }

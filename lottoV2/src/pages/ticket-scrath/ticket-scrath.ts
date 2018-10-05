@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Test, GlobalVarible } from '../../app/models';
+import { User, GlobalVarible } from '../../app/models';
 import { HttpClient } from '@angular/common/http'
 import { TicketSlotPage } from '../ticket-slot/ticket-slot';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the TicketScrathPage page.
  *
@@ -17,10 +18,10 @@ import { TicketSlotPage } from '../ticket-slot/ticket-slot';
 })
 export class TicketScrathPage {
 
-  test:Test;
+  user:User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
-    this.test = new Test();
+    this.user = new User();
   }
 
   ionViewDidEnter() {
@@ -31,8 +32,8 @@ export class TicketScrathPage {
   }
 
   Create(){
-    this.test.ans = this.test.first + this.test.second;
-    this.http.post(GlobalVarible.host + "/api/Test/Create", JSON.stringify(this.test), GlobalVarible.httpOptions)
+    console.log(this.user.name + "" + this.user.password);
+    this.http.post(GlobalVarible.host + "/api/User/Create", JSON.stringify(this.user), GlobalVarible.httpOptions)
     .subscribe(data => {
       this.navCtrl.push(TicketSlotPage);
     });

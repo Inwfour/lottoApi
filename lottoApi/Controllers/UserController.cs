@@ -6,36 +6,36 @@ using System.Security.Authentication;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using myapi.Models;
+using lottoApi.Models;
 
 namespace lottoApi.Controllers
 {
     [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     [Route("api/[controller]")]
-    public class TestController : Controller
+    public class UserController : Controller
     {
-        IMongoCollection<Test> Collection { get; set; }
+        IMongoCollection<User> Collection { get; set; }
 
-        public TestController()
+        public UserController()
         {
-            var settings = MongoClientSettings.FromUrl(new MongoUrl("mongodb://Inwfour:638cb680@ds020208.mlab.com:20208/ionic"));
+            var settings = MongoClientSettings.FromUrl(new MongoUrl("mongodb://lottoDB:lottosiam321@ds048537.mlab.com:48537/lottodb"));
             settings.SslSettings = new SslSettings()
             {
                 EnabledSslProtocols = SslProtocols.Tls12
             };
             var mongoClient = new MongoClient(settings);
-            var database = mongoClient.GetDatabase("ionic");
-            Collection = database.GetCollection<Test>("test");
+            var database = mongoClient.GetDatabase("lottodb");
+            Collection = database.GetCollection<User>("user");
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<Test> List()
+        public IEnumerable<User> List()
         {
             return Collection.Find(x => true).ToList();
         }
 
         [HttpPost("[action]")]
-        public void Create([FromBody]Test request)
+        public void Create([FromBody]User request)
         {
             request.Id = Guid.NewGuid().ToString();
             Collection.InsertOne(request);
@@ -48,13 +48,13 @@ namespace lottoApi.Controllers
         }
 
         [HttpPost("[action]")]
-        public void Edit([FromBody]Test request)
+        public void Edit([FromBody]User request)
         {
             Collection.ReplaceOne(x => x.Id == request.Id, request);
         }
 
         [HttpGet("[action]/{id}")]
-        public Test Get(string id)
+        public User Get(string id)
         {
             return Collection.Find(x => x.Id == id).FirstOrDefault();
         }

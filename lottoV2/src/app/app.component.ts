@@ -16,7 +16,7 @@ import { TicketSlotPage } from '../pages/ticket-slot/ticket-slot';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = TicketScrathPage;
+  rootPage:any = HomePage;
 
   constructor(public platform: Platform, public statusBar: StatusBar,public splashScreen: SplashScreen) {
     this.initializeApp();

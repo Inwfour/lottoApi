@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Test,GlobalVarible } from '../../app/models';
+import { User,GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
 /**
  * Generated class for the EditPage page.
@@ -15,11 +15,12 @@ import { HttpClient,HttpHeaders } from '@angular/common/http'
   templateUrl: 'edit.html',
 })
 export class EditPage {
-  test:Test;
+  test:User;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
-    this.http.get<Test>(GlobalVarible.host + "/api/Test/Get/" + this.navParams.data.idapi)
+    this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.navParams.data.idapi)
     .subscribe(data => {
       this.test = data;
+      this.test.Ticket
     });
   }
 

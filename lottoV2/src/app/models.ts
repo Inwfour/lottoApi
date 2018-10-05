@@ -1,10 +1,20 @@
 import { HttpHeaders } from "@angular/common/http";
-export class Test{
-    id:string;
-    first:number;
-    second:number;
-    ans:number;
+
+export class User {
+    id: string;
+    img: string;
+    name: string;
+    password: number;
+    eth: number;
+    money: number;
+    coin: number;
+    Ticket: Ticket;
 }
+
+export class Ticket {
+    
+}
+
 export class GlobalVarible {
     static host: string = "https://localhost:5001";
 

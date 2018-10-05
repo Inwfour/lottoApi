@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
-import { Test,GlobalVarible } from '../../app/models';
+import { User,GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
 import { EditPage } from '../edit/edit';
 /**
@@ -16,22 +16,22 @@ import { EditPage } from '../edit/edit';
   templateUrl: 'ticket-slot.html',
 })
 export class TicketSlotPage {
-test:Test;
+user:User;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient,public alertCtrl:AlertController) {
     
   }
 
   ionViewWillEnter() {
-    this.http.get<Test>(GlobalVarible.host + "/api/Test/List")
+    this.http.get<User>(GlobalVarible.host + "/api/User/List")
   .subscribe((data) => {
-    this.test = data;
+    this.user = data;
   });
 }
 
   ionViewDidLoad() {
-      this.http.get<Test>(GlobalVarible.host + "/api/Test/List")
+      this.http.get<User>(GlobalVarible.host + "/api/User/List")
     .subscribe((data) => {
-      this.test = data;
+      this.user = data;
     });
   }
 
@@ -48,7 +48,7 @@ test:Test;
         {
           text: 'Confirm',
           handler: () => {
-            this.http.post(GlobalVarible.host + "/api/Test/Delete/" + id, {}, GlobalVarible.httpOptions)
+            this.http.post(GlobalVarible.host + "/api/User/Delete/" + id, {}, GlobalVarible.httpOptions)
               .subscribe(data => {
                 this.ionViewDidLoad();
               });
