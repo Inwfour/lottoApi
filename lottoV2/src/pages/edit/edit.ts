@@ -15,17 +15,16 @@ import { HttpClient,HttpHeaders } from '@angular/common/http'
   templateUrl: 'edit.html',
 })
 export class EditPage {
-  test:User;
+  user:User;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
     this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.navParams.data.idapi)
     .subscribe(data => {
-      this.test = data;
-      this.test.Ticket
+      this.user = data;
     });
   }
 
   Edit() {
-    this.http.post(GlobalVarible.host + "/api/Test/Edit", JSON.stringify(this.test), GlobalVarible.httpOptions)
+    this.http.post(GlobalVarible.host + "/api/User/Edit", JSON.stringify(this.user), GlobalVarible.httpOptions)
       .subscribe(data => {
         this.navCtrl.pop();
       });

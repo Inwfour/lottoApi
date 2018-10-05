@@ -14,14 +14,14 @@
 
 
 <ion-content padding>
-  <ion-list *ngIf="test">
+  <ion-list *ngIf="user">
     <ion-item>
-      <ion-label floating>First</ion-label>
-      <ion-input type="number" [(ngModel)]="test.first"></ion-input>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Second</ion-label>
-      <ion-input type="number" [(ngModel)]="test.second"></ion-input>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="number" [(ngModel)]="user.password"></ion-input>
     </ion-item>
   </ion-list>
   <div padding>
