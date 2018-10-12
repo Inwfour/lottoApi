@@ -18,14 +18,14 @@ namespace lottoApi.Controllers
 
         public UserController()
         {
-            var settings = MongoClientSettings.FromUrl(new MongoUrl("mongodb://lottoDB:lottosiam321@ds048537.mlab.com:48537/lottodb"));
+            var settings = MongoClientSettings.FromUrl(new MongoUrl("mongodb://lottov2:Lottosiam321@ds052978.mlab.com:52978/user"));
             settings.SslSettings = new SslSettings()
             {
                 EnabledSslProtocols = SslProtocols.Tls12
             };
             var mongoClient = new MongoClient(settings);
-            var database = mongoClient.GetDatabase("lottodb");
-            Collection = database.GetCollection<User>("user");
+            var database = mongoClient.GetDatabase("user");
+            Collection = database.GetCollection<User>("userlist");
         }
 
         [HttpGet("[action]")]
