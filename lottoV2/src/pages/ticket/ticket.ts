@@ -43,7 +43,7 @@ export class TicketPage {
     this.navCtrl.pop();
   }
   randomSetNumder() {
-    this.rand = (Math.floor((Math.random() * 12) + 1)).toString();
+    this.rand = (Math.floor((Math.random() * 35) + 1)).toString();
     
   }
   checkSetNumber() {
@@ -83,38 +83,153 @@ export class TicketPage {
         break;
       }case "6": {
         this.Num = [22, 12, 33, 14, 2];
-        this.presentToast("case 5");
+        this.presentToast("case 6");
         console.log(this.Num);
         break;
       }case "7": {
         this.Num = [41, 1, 35, 18, 51];
-        this.presentToast("case 5");
+        this.presentToast("case 7");
         console.log(this.Num);
         break;
       }
       case "8": {
         this.Num = [2, 1, 35, 28, 51];
-        this.presentToast("case 5");
+        this.presentToast("case 8");
         console.log(this.Num);
         break;
       }case "9": {
         this.Num = [44, 40, 35, 31, 21];
-        this.presentToast("case 5");
+        this.presentToast("case 9");
         console.log(this.Num);
         break;
       }case "10": {
         this.Num = [22, 37, 27, 17, 9];
-        this.presentToast("case 5");
+        this.presentToast("case 10");
         console.log(this.Num);
         break;
       }case "11": {
         this.Num = [13, 1, 35, 18, 52];
-        this.presentToast("case 5");
+        this.presentToast("case 11");
         console.log(this.Num);
         break;
       }case "12": {
         this.Num = [37, 38, 21, 11, 3];
-        this.presentToast("case 5");
+        this.presentToast("case 12");
+        console.log(this.Num);
+        break;
+      }case "13": {
+        this.Num = [2, 22, 28, 11, 35];
+        this.presentToast("case 13");
+        console.log(this.Num);
+        break;
+      }case "14": {
+        this.Num = [22, 11, 21, 24, 9];
+        this.presentToast("case 14");
+        console.log(this.Num);
+        break;
+      }case "15": {
+        this.Num = [1, 50, 35, 11, 40];
+        this.presentToast("case 15");
+        console.log(this.Num);
+        break;
+      }case "16": {
+        this.Num = [19, 20, 27, 14, 45];
+        this.presentToast("case 16");
+        console.log(this.Num);
+        break;
+      }case "17": {
+        this.Num = [52, 24, 25, 38, 13];
+        this.presentToast("case 17");
+        console.log(this.Num);
+        break;
+      }case "18": {
+        this.Num = [4, 16, 17, 38, 43];
+        this.presentToast("case 18");
+        console.log(this.Num);
+        break;
+      }case "19": {
+        this.Num = [46, 24, 33, 2, 20];
+        this.presentToast("case 19");
+        console.log(this.Num);
+        break;
+      }case "20": {
+        this.Num = [26, 39, 1, 18,52];
+        this.presentToast("case 20");
+        console.log(this.Num);
+        break;
+      }case "21": {
+        this.Num = [36, 23, 10, 38, 7];
+        this.presentToast("case 21");
+        console.log(this.Num);
+        break;
+      }case "22": {
+        this.Num = [2, 29, 17, 44, 19];
+        this.presentToast("case 22");
+        console.log(this.Num);
+        break;
+      }case "23": {
+        this.Num = [20, 21, 35, 49, 11];
+        this.presentToast("case 23");
+        console.log(this.Num);
+        break;
+      }case "24": {
+        this.Num = [35, 23, 24, 12, 52];
+        this.presentToast("case 24");
+        console.log(this.Num);
+        break;
+      }case "25": {
+        this.Num = [2, 6, 11, 12, 1];
+        this.presentToast("case 25");
+        console.log(this.Num);
+        break;
+      }case "26": {
+        this.Num = [22, 17, 20, 25, 15];
+        this.presentToast("case 26");
+        console.log(this.Num);
+        break;
+      }case "27": {
+        this.Num = [47, 40, 44, 49, 51];
+        this.presentToast("case 27");
+        console.log(this.Num);
+        break;
+      }case "28": {
+        this.Num = [14, 40, 16, 45, 6];
+        this.presentToast("case 28");
+        console.log(this.Num);
+        break;
+      }case "29": {
+        this.Num = [46, 33, 7, 10, 49];
+        this.presentToast("case 29");
+        console.log(this.Num);
+        break;
+      }case "30": {
+        this.Num = [52, 26, 13, 50, 24];
+        this.presentToast("case 30");
+        console.log(this.Num);
+        break;
+      }case "31": {
+        this.Num = [8, 21, 34, 47, 24];
+        this.presentToast("case 31");
+        console.log(this.Num);
+        break;
+      }case "32": {
+        this.Num = [52, 26, 13, 50, 24];
+        this.presentToast("case 32");
+        console.log(this.Num);
+        break;
+      }case "33": {
+        this.Num = [6, 7, 8, 9, 10];
+        this.presentToast("case 33");
+        console.log(this.Num);
+        break;
+      }case "34": {
+        this.Num = [47, 48, 49, 50, 51];
+        this.presentToast("case 34");
+        console.log(this.Num);
+        break;
+      }case "35": {
+        this.Num = [14, 26, 25, 24, 23];
+        this.presentToast("case 34");
         console.log(this.Num);
         break;
       }
