@@ -12697,23 +12697,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Four\\.nuget\\packages\\": {},
+    "C:\\Users\\BosJazz\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "d:\\Lotto-Project\\lottoApi\\lottoApi\\lottoApi.csproj",
       "projectName": "lottoApi",
       "projectPath": "d:\\Lotto-Project\\lottoApi\\lottoApi\\lottoApi.csproj",
       "packagesPath": "C:\\Users\\Four\\.nuget\\packages\\",
       "outputPath": "d:\\Lotto-Project\\lottoApi\\lottoApi\\obj\\",
+=======
+      "projectUniqueName": "F:\\workthes\\lottoApi\\lottoApi\\lottoApi.csproj",
+      "projectName": "lottoApi",
+      "projectPath": "F:\\workthes\\lottoApi\\lottoApi\\lottoApi.csproj",
+      "packagesPath": "C:\\Users\\BosJazz\\.nuget\\packages\\",
+      "outputPath": "F:\\workthes\\lottoApi\\lottoApi\\obj\\",
+>>>>>>> provider
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Four\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\BosJazz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

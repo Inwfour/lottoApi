@@ -19,6 +19,7 @@ import { ScrathGamePage } from '../pages/scrath-game/scrath-game';
 import { TicketPage } from '../pages/ticket/ticket';
 import { FruityGamePage } from '../pages/fruity-game/fruity-game';
 import { HttpClient,HttpClientModule } from '@angular/common/http'
+import { SharedDataProvider } from '../providers/shared-data/shared-data';
 import { EditPage } from '../pages/edit/edit';
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { EditPage } from '../pages/edit/edit';
     StatusBar,
     SplashScreen,
     HttpClient,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SharedDataProvider
   ]
 })
 export class AppModule {}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TicketPage } from '../ticket/ticket';
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 
 /**
  * Generated class for the FruityGamePage page.
@@ -15,8 +16,12 @@ import { TicketPage } from '../ticket/ticket';
   templateUrl: 'fruity-game.html',
 })
 export class FruityGamePage {
+  Num: number[] = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public sharedData: SharedDataProvider) {
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  viewDidEnter(){
+    this.Num = this.sharedData.RandomNumbers;
   }
 
   ionViewDidLoad() {

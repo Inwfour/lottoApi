@@ -30,6 +30,7 @@ D:\Lotto-Project\lottoV2api\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.Views.pdb
 D:\Lotto-Project\lottoV2api\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.dll
 D:\Lotto-Project\lottoV2api\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.pdb
 D:\Lotto-Project\lottoV2api\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.csproj.CopyComplete
+<<<<<<< HEAD
 D:\Lotto-Project\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.deps.json
 D:\Lotto-Project\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.runtimeconfig.json
 D:\Lotto-Project\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.runtimeconfig.dev.json
@@ -62,3 +63,37 @@ D:\Lotto-Project\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.Views.pdb
 D:\Lotto-Project\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.dll
 D:\Lotto-Project\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.pdb
 D:\Lotto-Project\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.csproj.CopyComplete
+=======
+F:\workthes\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.deps.json
+F:\workthes\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.runtimeconfig.json
+F:\workthes\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.runtimeconfig.dev.json
+F:\workthes\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.dll
+F:\workthes\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.pdb
+F:\workthes\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.Views.dll
+F:\workthes\lottoApi\lottoApi\bin\Debug\netcoreapp2.1\lottoApi.Views.pdb
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.csprojAssemblyReference.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.csproj.CoreCompileInputs.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.RazorAssemblyInfo.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.RazorAssemblyInfo.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.AssemblyInfoInputs.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.AssemblyInfo.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.TagHelpers.input.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.TagHelpers.output.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.RazorCoreGenerate.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.RazorTargetAssemblyInfo.cache
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.RazorTargetAssemblyInfo.cs
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.Views.pdb
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.dll
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.pdb
+F:\workthes\lottoApi\lottoApi\obj\Debug\netcoreapp2.1\lottoApi.csproj.CopyComplete
+>>>>>>> provider
