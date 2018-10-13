@@ -26,6 +26,7 @@ namespace lottoApi.Controllers
             var mongoClient = new MongoClient(settings);
             var database = mongoClient.GetDatabase("user");
             Collection = database.GetCollection<Ticket>("tickets");
+
         }
 
         [HttpGet("[action]")]
@@ -37,7 +38,7 @@ namespace lottoApi.Controllers
         [HttpPost("[action]")]
         public void Create([FromBody]Ticket request)
         {
-            request.Id = Guid.NewGuid().ToString();
+            // request.Id = Guid.NewGuid().ToString();
             Collection.InsertOne(request);
         }
 

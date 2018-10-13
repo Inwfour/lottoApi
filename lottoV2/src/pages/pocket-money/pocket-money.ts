@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
+import { User } from '../../models/user';
 /**
  * Generated class for the PocketMoneyPage page.
  *
@@ -14,39 +15,11 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
   templateUrl: 'pocket-money.html',
 })
 export class PocketMoneyPage {
-  History:{
-    "Date":"1111111111",
-    "Amount":"20",
-    "Type":"Buy Coin"
-  };
-  History1 = [];
+  user:User;
+  
+  constructor(public shared:SharedDataProvider, public navCtrl: NavController, public navParams: NavParams, public alertCtrl:AlertController) {
+    this.user = shared.User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl:AlertController) {
-    this.History1 = [
-    {
-      'Date': '22/08/18',        
-      'Amount': '20',
-      'Type': 'Sell Coin',
-      
-    },
-    {
-      'Date': '21/08/18',        
-      'Amount': '100',
-      'Type': 'Buy Coin',
-    },
-    {
-      'Date': '20/08/18',        
-      'Amount': '5',
-      'Type': 'Buy Ticket',
-    },
-    {
-      'Date': '19/08/18',        
-      'Amount': '200',
-      'Type': 'Scrath Poker',
-    },
-  ]
-
-    
   }
 
   ionViewDidLoad() {

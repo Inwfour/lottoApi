@@ -6,6 +6,7 @@ import { TicketScrathPage } from '../ticket-scrath/ticket-scrath';
 import { User } from '../../models/user';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient } from '@angular/common/http'
+import { SharedDataProvider } from '../../providers/shared-data/shared-data'
 /**
  * Generated class for the LoginPage page.
  *
@@ -21,7 +22,7 @@ import { HttpClient } from '@angular/common/http'
 export class LoginPage {
   name:any;
   password:any;
-  constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private shared:SharedDataProvider, public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewWillEnter() {
@@ -32,16 +33,26 @@ export class LoginPage {
   nextHome(){
     this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.name + "/" + this.password)
     .subscribe(data => {
-      //TODO
+      this.shared.User = data;
       if(data == null){
-        alert("Not found");
+        alert("not wrong");
       }else{
-        this.navCtrl.push(TabsPage, {iduser:data.id});
+        this.navCtrl.push(TabsPage);
       }
-      
     });
+
   }
   register(){
-    this.navCtrl.push(TicketScrathPage);
+    this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.name + "/" + this.password)
+    .subscribe(data => {
+      this.shared.User = data;
+      if(data == null){
+        alert("not wrong");
+      }else{
+        this.navCtrl.push(TicketScrathPage);
+      }
+    });
+
   }
 }
+

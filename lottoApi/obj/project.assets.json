@@ -12697,31 +12697,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BosJazz\\.nuget\\packages\\": {},
+    "C:\\Users\\Four\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "d:\\Lotto-Project\\lottoApi\\lottoApi\\lottoApi.csproj",
+      "projectUniqueName": "D:\\Lotto-Project\\lottoApi\\lottoApi\\lottoApi.csproj",
       "projectName": "lottoApi",
-      "projectPath": "d:\\Lotto-Project\\lottoApi\\lottoApi\\lottoApi.csproj",
+      "projectPath": "D:\\Lotto-Project\\lottoApi\\lottoApi\\lottoApi.csproj",
       "packagesPath": "C:\\Users\\Four\\.nuget\\packages\\",
-      "outputPath": "d:\\Lotto-Project\\lottoApi\\lottoApi\\obj\\",
-=======
-      "projectUniqueName": "F:\\workthes\\lottoApi\\lottoApi\\lottoApi.csproj",
-      "projectName": "lottoApi",
-      "projectPath": "F:\\workthes\\lottoApi\\lottoApi\\lottoApi.csproj",
-      "packagesPath": "C:\\Users\\BosJazz\\.nuget\\packages\\",
-      "outputPath": "F:\\workthes\\lottoApi\\lottoApi\\obj\\",
->>>>>>> provider
+      "outputPath": "D:\\Lotto-Project\\lottoApi\\lottoApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\BosJazz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Four\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12772,5 +12764,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Lotto-Project\\lottoApi\\lottoApi\\obj\\lottoApi.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

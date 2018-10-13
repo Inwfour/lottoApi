@@ -7,19 +7,15 @@ import { FruityGamePage } from '../fruity-game/fruity-game';
 import { User } from '../../models/user';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient } from '@angular/common/http'
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
   user:User;
-  constructor(public http:HttpClient, public navParams: NavParams,  public navCtrl: NavController,public menuCtrl: MenuController) {
-    this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.navParams.data.iduser)
-    .subscribe(data => {
-      this.user = data;
-      console.log("home" + data);
-    });
-
+  constructor(public http:HttpClient, public navParams: NavParams,  public navCtrl: NavController,public menuCtrl: MenuController,private shared:SharedDataProvider) {
+    this.user = shared.User;
   }
   back(){
     this.navCtrl.push(LoginPage);

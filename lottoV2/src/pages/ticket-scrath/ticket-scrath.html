@@ -25,20 +25,18 @@
   </ion-row> -->
   <ion-list>
     <ion-item>
-      <ion-label floating>Username :</ion-label>
-      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+      <ion-label floating>Id :</ion-label>
+      <ion-input type="text" [(ngModel)]="ticket.id"></ion-input>
     </ion-item>
-    <ion-item>
-        <ion-label floating>Password :</ion-label>
-        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-      </ion-item>
+
       <ion-item>
-        <ion-label floating>game :</ion-label>
-        <ion-input type="text" [(ngModel)]="ticket.game"></ion-input>
-      </ion-item>
-      
+        <ion-label>Gaming</ion-label>
+        <ion-select [(ngModel)]="ticket.game">
+          <ion-option value="sl">Scrath Lotto</ion-option>
+          <ion-option value="fs">Fruthy Slot</ion-option>
+        </ion-select>
+        </ion-item>
   </ion-list>
   <button ion-button block color="secondary" (click)="Create()">Save</button>
-  <button ion-button block color="secondary" (click)="CreateT()">SaveT</button>
   <button ion-button block color="danger" (click)="NextList()">List</button>
 </ion-content>

@@ -6,6 +6,7 @@ import { TicketSlotPage } from '../ticket-slot/ticket-slot';
 import { HomePage } from '../home/home';
 import { User } from '../../models/user';
 import { Ticket } from '../../models/ticket';
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 /**
  * Generated class for the TicketScrathPage page.
  *
@@ -20,11 +21,14 @@ import { Ticket } from '../../models/ticket';
 })
 export class TicketScrathPage {
 
-  user:User;
-  ticket:Ticket;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
-    this.user = new User();
-    this.ticket = new Ticket();
+  user:User = new User();
+  ticket:Ticket = new Ticket();
+  constructor(public shared:SharedDataProvider,public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
+    this.ticket = this.shared.Ticket;
+    this.user = this.shared.User;
+    this.ticket.id = this.user.id;
+    
+    
   }
 
   ionViewDidEnter() {
@@ -35,18 +39,15 @@ export class TicketScrathPage {
   }
 
   Create(){
-   
-    this.http.post(GlobalVarible.host + "/api/User/Create", JSON.stringify(this.user), GlobalVarible.httpOptions)
-    .subscribe(data => {
-      this.navCtrl.push(TicketSlotPage);
-    });
-  }
-  CreateT(){
+    this.ticket.setnumber = (Math.floor((Math.random() * 6) + 1));
+
     this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
     .subscribe(data => {
+      
       this.navCtrl.push(TicketSlotPage);
     });
   }
+
 
   NextList(){
     this.navCtrl.push(TicketSlotPage);

@@ -6,6 +6,7 @@ import { AlarmPage } from '../alarm/alarm';
 import { User } from '../../models/user';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 /**
  * Generated class for the TabsPage page.
  *
@@ -19,17 +20,12 @@ import { HttpClient,HttpHeaders } from '@angular/common/http'
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
-  user:User;
 tab1Root = HomePage;
-tab1home= {iduser:this.user}
 tab2Root = PocketMoneyPage;
 tab3Root = AlarmPage;
 
-  constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
-    this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.navParams.data.iduser)
-    .subscribe(data => {
-      this.user = data;
-    });
+  constructor(public shared:SharedDataProvider, public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
 

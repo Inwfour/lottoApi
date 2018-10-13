@@ -44,6 +44,13 @@ namespace lottoApi.Controllers
         }
 
         [HttpPost("{id}")]
+        public void Addticket([FromBody]User request)
+        {
+            request.Id = Guid.NewGuid().ToString();
+            Collection.InsertOne(request);
+        }
+
+        [HttpPost("{id}")]
         public void Delete(string id)
         {
             Collection.DeleteOne(x => x.Id == id);
