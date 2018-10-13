@@ -13,15 +13,15 @@
             <ion-label>
                 <ion-icon name="md-contact"></ion-icon>
             </ion-label>
-            <ion-input clearInput type="text" placeholder="Username"></ion-input>
+            <ion-input clearInput type="text" placeholder="Username" [(ngModel)]="name"></ion-input>
         </ion-item>
         <ion-item class="item-pass">
             <ion-label>
                 <ion-icon name="ios-key"></ion-icon>
             </ion-label>
-            <ion-input clearInput type="password" placeholder="Password"></ion-input>
+            <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
         </ion-item>
         <button class="btn-login" ion-button block (click)="nextHome()">Login</button>
-        <button class="btn-register" ion-button block>Register</button>
+        <button class="btn-register" ion-button block (click)="register()" >Register</button>
     </ion-list>
 </ion-content>

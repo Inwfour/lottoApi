@@ -5,18 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-  import { TabsPage } from '../pages/tabs/tabs';
-  import { PocketMoneyPage } from '../pages/pocket-money/pocket-money';
 import { SettingPage } from '../pages/setting/setting';
-import { TicketPage } from '../pages/ticket/ticket';
-import { TicketScrathPage } from '../pages/ticket-scrath/ticket-scrath';
-import { TicketSlotPage } from '../pages/ticket-slot/ticket-slot';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = HomePage;
+  rootPage:any = LoginPage;
 
   constructor(public platform: Platform, public statusBar: StatusBar,public splashScreen: SplashScreen) {
     this.initializeApp();

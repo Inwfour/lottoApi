@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
-import { User,GlobalVarible } from '../../app/models';
+import { GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
 import { EditPage } from '../edit/edit';
+import { User } from '../../models/user';
+import { Ticket } from '../../models/ticket';
 /**
  * Generated class for the TicketSlotPage page.
  *
@@ -17,6 +19,7 @@ import { EditPage } from '../edit/edit';
 })
 export class TicketSlotPage {
 user:User;
+ticket:Ticket;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient,public alertCtrl:AlertController) {
     
   }
@@ -25,6 +28,10 @@ user:User;
     this.http.get<User>(GlobalVarible.host + "/api/User/List")
   .subscribe((data) => {
     this.user = data;
+  });
+  this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/List")
+  .subscribe((data) => {
+    this.ticket = data;
   });
 }
 

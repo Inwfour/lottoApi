@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User,GlobalVarible } from '../../app/models';
+import { GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
+import { User } from '../../models/user';
 /**
  * Generated class for the EditPage page.
  *
