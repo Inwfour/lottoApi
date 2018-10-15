@@ -38,7 +38,7 @@ namespace lottoApi.Controllers
         [HttpPost("[action]")]
         public void Create([FromBody]Ticket request)
         {
-            // request.Id = Guid.NewGuid().ToString();
+            request.Id = Guid.NewGuid().ToString();
             Collection.InsertOne(request);
         }
 
@@ -59,5 +59,13 @@ namespace lottoApi.Controllers
         {
             return Collection.Find(x => x.Id == id).FirstOrDefault();
         }
+
+        
+        [HttpGet("[action]/{id}/{game}")]
+        public IEnumerable<Ticket> Getticket(string id, string game)
+        {
+            return Collection.Find(x => x.RefId == id && x.Game == game).ToList();
+        
     }
+}
 }

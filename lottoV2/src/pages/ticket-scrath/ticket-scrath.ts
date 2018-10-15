@@ -26,9 +26,7 @@ export class TicketScrathPage {
   constructor(public shared:SharedDataProvider,public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
     this.ticket = this.shared.Ticket;
     this.user = this.shared.User;
-    this.ticket.id = this.user.id;
-    
-    
+    this.ticket.refid = this.user.id;
   }
 
   ionViewDidEnter() {

@@ -8,14 +8,17 @@ import { User } from '../../models/user';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient } from '@angular/common/http'
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
+import { Ticket } from '../../models/ticket';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
   user:User;
+  ticket:Ticket;
   constructor(public http:HttpClient, public navParams: NavParams,  public navCtrl: NavController,public menuCtrl: MenuController,private shared:SharedDataProvider) {
     this.user = shared.User;
+    this.ticket = shared.Ticket;
   }
   back(){
     this.navCtrl.push(LoginPage);
