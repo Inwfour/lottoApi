@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TicketPage } from '../ticket/ticket';
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
-
+import { Ticket } from '../../models/ticket';
+import { User } from '../../models/user';
+import { GlobalVarible } from '../../app/models';
+import { HttpClient,HttpHeaders } from '@angular/common/http'
 /**
  * Generated class for the FruityGamePage page.
  *
@@ -17,18 +20,32 @@ import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 })
 export class FruityGamePage {
   Num: number[] = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public sharedData: SharedDataProvider) {
+  ticket:Ticket;
+  user:User;
+  fs="fs";
+  constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams, public shared: SharedDataProvider) {
+    this.user = shared.User;
   }
 
-  viewDidEnter(){
-    this.Num = this.sharedData.RandomNumbers;
-  }
+  // viewDidEnter(){
+  //   this.Num = this.sharedData.RandomNumbers;
+  // }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FruityGamePage');
+    this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+    .subscribe((data) => {
+      this.ticket = data;
+    });
   }
-  nextTicket(){
-    this.navCtrl.push(TicketPage);
+  ionViewWillEnter() {
+    this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+    .subscribe((data) => {
+      this.ticket = data;
+    });
+}
+
+  nextTicket(fs:string){
+    this.navCtrl.push(TicketPage,{fs:this.fs});
   }
 
 }

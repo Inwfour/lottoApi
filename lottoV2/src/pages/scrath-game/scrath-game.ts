@@ -22,25 +22,31 @@ import { User } from '../../models/user';
 export class ScrathGamePage {
   ticket:Ticket;
   user:User;
+  sl="sl";
+  count:any;
   constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams,private shared:SharedDataProvider) {
-   
     this.user = shared.User;
-
   }
 
-  ionViewDidLoad() {
+  ionViewWillLoad() {
+    this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
+    .subscribe((data) => {
+      this.ticket = data;
+
+    });
+  }
+  
+
+  ionViewWillEnter() {
     this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     .subscribe((data) => {
       this.ticket = data;
     });
-  }
-
-  ionViewWillEnter() {
-
 }
 
-  nextTicket(){
-    this.navCtrl.push(TicketPage);
+  nextTicket(sl:string){
+    this.navCtrl.push(TicketPage,{sl:this.sl});
+    alert(this.sl);
   }
 
 }

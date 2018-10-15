@@ -25,11 +25,11 @@
     </ion-grid>
     <ion-grid style="padding: 10px">
         <ion-label>Your Ticket</ion-label>
-        <button (click)="nextTicket()" ion-button style="background-color: green;border-radius: 10px;width: 100%">+ Add Ticket</button>
+        <button (click)="nextTicket(sl)" ion-button style="background-color: green;border-radius: 10px;width: 100%">+ Add Ticket</button>
         <ion-card style="background-color: green;border-radius: 10px" (click)="NextGame()" *ngFor="let t of ticket">
             <ion-row style="padding:3px">
                 <ion-col col-3>
-                    <ion-label style="color: white">No.1</ion-label>
+                    <ion-label style="color: white">{{t.game}}</ion-label>
                 </ion-col>
                 <ion-col col-9 style="text-align: right;">
                     <ion-label style="color: white">{{t.id}}</ion-label>

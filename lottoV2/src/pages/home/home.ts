@@ -15,24 +15,47 @@ import { Ticket } from '../../models/ticket';
 })
 export class HomePage {
   user:User;
-  ticket:Ticket;
+  ticket:Ticket[];
+  sl = "sl";
+  fs = "fs";
+  countsl:number;
+  countfs:number;
   constructor(public http:HttpClient, public navParams: NavParams,  public navCtrl: NavController,public menuCtrl: MenuController,private shared:SharedDataProvider) {
     this.user = shared.User;
-    this.ticket = shared.Ticket;
+
   }
+
+  ionViewWillEnter() {
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
+    .subscribe((data) => {
+      this.ticket = data;
+      this.countsl = this.ticket.length;
+    });
+
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+    .subscribe((data) => {
+      this.ticket = data;
+      this.countfs = this.ticket.length
+    });
+  }
+
+
   back(){
     this.navCtrl.push(LoginPage);
   }
   toggleMenu() {
     this.menuCtrl.toggle();
   }
+
+  nextTicketsl(sl:string){
+    this.navCtrl.push(TicketPage,{sl:this.sl});
+  }
+  nextTicketfs(fs:string){
+    this.navCtrl.push(TicketPage,{fs:this.fs});
+  }
   nextGame(){
     this.navCtrl.push(ScrathGamePage);
   }
-  nextTicket(){
-    this.navCtrl.push(TicketPage);
-  }
-
   nextFruity(){
     this.navCtrl.push(FruityGamePage);
   }

@@ -19,11 +19,11 @@
             <ion-row>
                 <ion-col>
                     <ion-img style="width: 35px; height: 35px; background-color: lightgrey;" src="../../assets/imgs/Coin.png"></ion-img>
-                    <div class="b">20</div>
+                    <div class="b">{{user.coin}}</div>
                 </ion-col>
                 <ion-col>
                     <ion-img style="width: 35px; height: 35px; background-color: lightgrey;" src="../../assets/imgs/Coin_ETH.png"></ion-img>
-                    <div class="b">10</div>
+                    <div class="b">{{user.eth}}</div>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -32,26 +32,22 @@
     <ion-grid>
         <ion-row>
             <ion-col col-12>
-                <ion-label style="text-align: left">Choose Your Games</ion-label>
-                <hr>
-            </ion-col>
-            <ion-col col-12>
                 <ion-item>
-                    <ion-label>Game</ion-label>
-                    <ion-select [(ngModel)]="game">
-                        <ion-option value="ScratchPoker">Scratch Poker</ion-option>
-                        <ion-option value="FruitySlot">Fruity Slot</ion-option>
-                    </ion-select>
+                    <ion-label></ion-label>
+                    <!-- <ion-select [(ngModel)]="ticket.game">
+                        <ion-option [value]="ansgame">{{gamedetail}}</ion-option>
+
+                    </ion-select> -->
                 </ion-item>
             </ion-col>
             <ion-col col-12 text-center>
-                <br> Your Game : {{game}}
+                <br> Your Game : {{gamedetail}}
                 <br>
             </ion-col>
             <ion-col col-12 text-center>
                 <ion-item>
                     <ion-label stacked color="primary">Your Ticket :</ion-label>
-                    <ion-input type="text" placeholder="Your Ticket"></ion-input>
+                    <ion-input type="text" placeholder="Your Ticket" ></ion-input>
                 </ion-item>
             </ion-col>
             <ion-col col-12 text-center>
