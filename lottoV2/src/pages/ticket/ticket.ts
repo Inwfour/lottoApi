@@ -19,17 +19,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
   templateUrl: 'ticket.html',
 })
 export class TicketPage {
-
+  ticketCount: number;
   rand: any;
   setNumber: any;
   Num: number[];
 
   user: User;
   ticket: Ticket;
-  sl:string;
-  fs:string;
-  ansgame:any;
-  gamedetail:any;
+  sl: string;
+  fs: string;
+  ansgame: any;
+  gamedetail: any;
+  countsl: number;
+  countfs: number;
 
   constructor(public Toast: ToastController,
     public navCtrl: NavController,
@@ -51,16 +53,25 @@ export class TicketPage {
   }
 
   ionViewWillEnter() {
-    if(this.sl == null){
+    if (this.sl == null) {
       this.ticket.game = this.fs;
       this.gamedetail = "Fruity Slot"
 
 
-    }else{
+    } else {
       this.ticket.game = this.sl;
       this.gamedetail = "Scratch Poker"
-
     }
+
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
+      .subscribe((data) => {
+        this.countsl = data.length;
+      });
+
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+      .subscribe((data) => {
+        this.countfs = data.length;
+      });
 
   }
 
@@ -74,12 +85,12 @@ export class TicketPage {
   nextPop() {
     this.navCtrl.pop();
   }
-  randomSetNumder() {
+  randomSetNumber() {
     this.rand = (Math.floor((Math.random() * 35) + 1)).toString();
 
   }
   checkSetNumber() {
-    this.randomSetNumder();
+    this.randomSetNumber();
     this.setNumber = this.rand;
 
     switch (this.setNumber) {
@@ -272,35 +283,57 @@ export class TicketPage {
     }
   }
 
+
+
   nextConfirm() {
-    this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
-    .subscribe(data => {
+    
+    for (let i = 0; i < this.ticketCount; i++) {
+      this.checkSetNumber();
+      this.ticket.setnumber = this.setNumber;
+      this.ticket.num = this.Num;
+      this.ticket.isplayed = false;
       
-      this.navCtrl.pop();
-    });
+      if (this.ticket.game = this.sl) {
 
+        this.ticket.no = this.countsl + 1;
+        this.countsl++;
+      } 
+      else if(this.ticket.game = this.fs)
+      {
+        this.ticket.no = this.countfs + 1;
+        this.countfs++;
+      }
+      alert(this.countfs);
+      this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
+        .subscribe(data => {
 
-    //   let alert = this.alertCtrl.create({
-    //     title: 'Confirm',
-    //     message: '2 Ticket = 2 Coin',
-    //     buttons: [
-    //       {
-    //         text: 'Cancel',
-    //         role: 'cancel',
-    //         handler: () => {
-
-    //         }
-    //       },
-    //       {
-    //         text: 'Buy',
-    //         handler: () => {
-    //           this.checkSetNumber();
-    //           this.shared.RandomNumbers = this.Num;
-    //           this.navCtrl.pop();
-    //         }
-    //       }
-    //     ]
-    //   });
-    //   alert.present();
+        });
+    };
+    this.navCtrl.pop();
   }
+
+
+  //     let alert = this.alertCtrl.create({
+  //       title: 'Confirm',
+  //       message: '2 Ticket = 2 Coin',
+  //       buttons: [
+  //         {
+  //           text: 'Cancel',
+  //           role: 'cancel',
+  //           handler: () => {
+
+  //           }
+  //         },
+  //         {
+  //           text: 'Buy',
+  //           handler: () => {
+  //             this.checkSetNumber();
+  //             this.shared.RandomNumbers = this.Num;
+  //             this.navCtrl.pop();
+  //           }
+  //         }
+  //       ]
+  //     });
+  //     alert.present();
 }
+

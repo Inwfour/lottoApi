@@ -20,9 +20,10 @@ import { HttpClient,HttpHeaders } from '@angular/common/http'
 })
 export class FruityGamePage {
   Num: number[] = [];
-  ticket:Ticket;
+  ticket:Ticket[];
   user:User;
   fs="fs";
+  count:number;
   constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams, public shared: SharedDataProvider) {
     this.user = shared.User;
   }
@@ -31,16 +32,17 @@ export class FruityGamePage {
   //   this.Num = this.sharedData.RandomNumbers;
   // }
 
-  ionViewDidLoad() {
-    this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
-    .subscribe((data) => {
-      this.ticket = data;
-    });
-  }
+  // ionViewDidLoad() {
+  //   this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+  //   .subscribe((data) => {
+  //     this.ticket = data;
+  //   });
+  // }
   ionViewWillEnter() {
-    this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
     .subscribe((data) => {
       this.ticket = data;
+      this.count = this.ticket.length;
     });
 }
 
