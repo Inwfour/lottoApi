@@ -26,6 +26,7 @@ export class ScrathGamePage {
   count:number;
   constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams,private shared:SharedDataProvider) {
     this.user = shared.User;
+    
   }
 
   // ionViewWillLoad() {
@@ -42,6 +43,7 @@ export class ScrathGamePage {
     .subscribe((data) => {
       this.ticket = data;
       this.count = this.ticket.length;
+      
     });
 
 }

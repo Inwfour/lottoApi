@@ -5,7 +5,8 @@ export class Ticket {
     no:number;
     game:string;
     serialnumber:number;
-    date:DateTime;
+    date:string;
+    time:string;
     isplayed:boolean;
     setnumber:number;
     num:number[];

@@ -21,9 +21,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 export class TicketPage {
   ticketCount: number;
   rand: any;
-  setNumber: any;
+  setnumber: any;
   Num: number[];
-
+  time:string = new Date().toLocaleTimeString();
+  date:string = new Date().toLocaleDateString();
   user: User;
   ticket: Ticket;
   sl: string;
@@ -91,9 +92,9 @@ export class TicketPage {
   }
   checkSetNumber() {
     this.randomSetNumber();
-    this.setNumber = this.rand;
+    this.setnumber = this.rand;
 
-    switch (this.setNumber) {
+    switch (this.setnumber) {
       case "1": {
         this.Num = [1, 32, 42, 13, 5];
         this.presentToast("case 1");
@@ -289,9 +290,11 @@ export class TicketPage {
     
     for (let i = 0; i < this.ticketCount; i++) {
       this.checkSetNumber();
-      this.ticket.setnumber = this.setNumber;
+      this.ticket.setnumber = this.setnumber;
       this.ticket.num = this.Num;
       this.ticket.isplayed = false;
+      this.ticket.date = this.date;
+      this.ticket.time = this.time;
       
       if (this.ticket.game = this.sl) {
 
@@ -303,7 +306,6 @@ export class TicketPage {
         this.ticket.no = this.countfs + 1;
         this.countfs++;
       }
-      alert(this.countfs);
       this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
         .subscribe(data => {
 

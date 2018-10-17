@@ -35,7 +35,20 @@ export class HomePage {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
     .subscribe((data) => {
       this.ticket = data;
-      this.countfs = this.ticket.length
+      this.countfs = this.ticket.length;
+    });
+  }
+  ionViewDidLoad() {
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
+    .subscribe((data) => {
+      this.ticket = data;
+      this.countsl = this.ticket.length;
+    });
+
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+    .subscribe((data) => {
+      this.ticket = data;
+      this.countfs = this.ticket.length;
     });
   }
 
