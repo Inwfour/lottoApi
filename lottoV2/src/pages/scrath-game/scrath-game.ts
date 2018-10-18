@@ -6,6 +6,7 @@ import { Ticket } from '../../models/ticket';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
 import { User } from '../../models/user';
+import { SettingDetailPage } from '../setting-detail/setting-detail';
 
 /**
  * Generated class for the ScrathGamePage page.
@@ -26,7 +27,7 @@ export class ScrathGamePage {
   count:number;
   constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams,private shared:SharedDataProvider) {
     this.user = shared.User;
-    
+
   }
 
   // ionViewWillLoad() {
@@ -42,7 +43,7 @@ export class ScrathGamePage {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     .subscribe((data) => {
       this.ticket = data;
-      this.count = this.ticket.length;
+      this.count = data.length;
       
     });
 
@@ -50,6 +51,15 @@ export class ScrathGamePage {
 
   nextTicket(sl:string){
     this.navCtrl.push(TicketPage,{sl:this.sl});
+  }
+
+  NextGame(id:string){
+    this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Get/" + id)
+    .subscribe((data) => {
+      this.shared.Ticket = data;  
+      console.log(this.shared.Ticket);
+      this.navCtrl.push(SettingDetailPage);    
+    });
   }
 
 }

@@ -14,13 +14,15 @@
 
 
 <ion-content padding>
-    <ion-list  ion-item *ngFor="let item1 of alarm1">     
-          <ion-avatar item-start>
-            <img src="../../assets/imgs/user.png">
-          </ion-avatar>
-          <h2>{{ item1.Type }}</h2>
-          <p>{{ item1.From }}</p>
-          <ion-note item-end>{{ item1.Date }}</ion-note>     
+    <ion-list ion-item  *ngFor="let h of history">   
+      <ion-item no-lines *ngIf="h.status == false">
+          <div no-padding item-start>
+            <img [src]="h.img" width="50px" >
+          </div>
+          <h2>Buy : {{ h.amouth }} Tickets</h2>
+          <p>{{ h.detailGame }}</p>
+          <ion-note item-end>{{ h.date }}</ion-note>     
+        </ion-item>
       </ion-list>
       
     

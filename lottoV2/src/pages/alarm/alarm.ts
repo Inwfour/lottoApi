@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
+import { User } from '../../models/user';
+import { History } from '../../models/history';
+import { GlobalVarible } from '../../app/models';
+import { HttpClient,HttpHeaders } from '@angular/common/http'
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the AlarmPage page.
  *
@@ -14,37 +19,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'alarm.html',
 })
 export class AlarmPage {
-
-  alarm1 = [];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.alarm1 = [
-      {
-        'Date': '22/08/18',        
-        'From': 'From John Wick',
-        'Type': 'Sell 20 Coin',
-        
-      },
-      {
-        'Date': '21/08/18',        
-        'From': 'From UserX',
-        'Type': 'Buy 10 Coin',
-      },
-      {
-        'Date': '20/08/18',        
-        'From': 'From UserX',
-        'Type': 'Buy 5 Ticket',
-      },
-      {
-        'Date': '19/08/18',        
-        'From': 'From Admin',
-        'Type': 'Scrath 200 Poker',
-      },
-    ]
+  user:User;
+  history:History;
+  sta:boolean = false;
+ 
+  constructor(public shared:SharedDataProvider,public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+   this.user = shared.User;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AlarmPage');
+  ionViewWillEnter() {
+    this.http.get<History>(GlobalVarible.host + "/api/History/List")
+    .subscribe((data) => {
+      this.history = data;
+    });
   }
+
+
 
 }

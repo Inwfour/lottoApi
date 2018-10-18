@@ -105,19 +105,21 @@
     </ion-item>
   </ion-list>
 
-  <ion-list ion-item *ngFor="let item of History1" (click)="show(item)">
+  <ion-list ion-item *ngFor="let h of history">
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: start">
-          {{ item.Date }}
+          {{ h.date }}
         </ion-col>
         <ion-col style="text-align: center">
-          {{ item.Amount }}
+          {{ h.amouth }}
+          <img [src]="h.img" width="25px">
         </ion-col>
         <ion-col style="text-align: end">
-          {{ item.Type }}
+          {{ h.detailGame }}
         </ion-col>
       </ion-row>
+
     </ion-grid>
   </ion-list>
 

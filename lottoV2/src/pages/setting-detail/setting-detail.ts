@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
+import { Ticket } from '../../models/ticket';
+import { GlobalVarible } from '../../app/models';
+import { HttpClient,HttpHeaders } from '@angular/common/http'
+import { User } from '../../models/user';
 /**
  * Generated class for the SettingDetailPage page.
  *
@@ -16,13 +20,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 export class SettingDetailPage {
   item;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.item = navParams.data.item;
+  user:User;
+  ticket:Ticket;
+  constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams,private shared:SharedDataProvider) {
+    this.ticket = this.shared.Ticket;
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingDetailPage');
+    console.log(this.ticket);
   }
 
 }

@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 import { User } from '../../models/user';
+import { History } from '../../models/history';
+import { GlobalVarible } from '../../app/models';
+import { HttpClient,HttpHeaders } from '@angular/common/http'
+
 /**
  * Generated class for the PocketMoneyPage page.
  *
@@ -16,26 +20,30 @@ import { User } from '../../models/user';
 })
 export class PocketMoneyPage {
   user:User;
-  
-  constructor(public shared:SharedDataProvider, public navCtrl: NavController, public navParams: NavParams, public alertCtrl:AlertController) {
+  history:History;
+  constructor(public http:HttpClient, public shared:SharedDataProvider, public navCtrl: NavController, public navParams: NavParams, public alertCtrl:AlertController) {
     this.user = shared.User;
+    // this.history = shared.History;
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PocketMoneyPage');
+  ionViewWillEnter() {
+    this.http.get<History>(GlobalVarible.host + "/api/History/List")
+    .subscribe((data) => {
+      this.history = data;
+    });
   }
-  show(item){
-    {
-      const alert = this.alertCtrl.create({
-        title: item.Date + "<br>",
-        subTitle: item.Amount + "<br>" +item.Type,       
-        buttons: ['OK']
-      });
-      alert.present();
-    }
+  // show(item){
+  //   {
+  //     const alert = this.alertCtrl.create({
+  //       title: item.Date + "<br>",
+  //       subTitle: item.Amount + "<br>" +item.Type,       
+  //       buttons: ['OK']
+  //     });
+  //     alert.present();
+  //   }
 
-  }
+  // }
   alertMoney(){
     let alert = this.alertCtrl.create({
       title: 'Add Line',

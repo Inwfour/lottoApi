@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, ToastController }
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 import { User } from '../../models/user';
 import { Ticket } from '../../models/ticket';
+import { History } from '../../models/history';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
@@ -23,10 +24,11 @@ export class TicketPage {
   rand: any;
   setnumber: any;
   Num: number[];
-  time:string = new Date().toLocaleTimeString();
-  date:string = new Date().toLocaleDateString();
+  time: string = new Date().toLocaleTimeString();
+  date: string = new Date().toLocaleDateString();
   user: User;
   ticket: Ticket;
+  history: History;
   sl: string;
   fs: string;
   ansgame: any;
@@ -43,7 +45,9 @@ export class TicketPage {
     // this.game = "ScratchPoker";
     this.ticket = this.shared.Ticket;
     this.user = this.shared.User;
+    this.history = this.shared.History;
     this.ticket.refid = this.user.id;
+    this.history.refid = this.user.id;
     this.sl = this.navParams.data.sl
     this.fs = this.navParams.data.fs
   }
@@ -56,10 +60,12 @@ export class TicketPage {
   ionViewWillEnter() {
     if (this.sl == null) {
       this.ticket.game = this.fs;
+      this.history.game = this.fs
       this.gamedetail = "Fruity Slot"
 
 
     } else {
+      this.ticket.game = this.sl;
       this.ticket.game = this.sl;
       this.gamedetail = "Scratch Poker"
     }
@@ -287,7 +293,7 @@ export class TicketPage {
 
 
   nextConfirm() {
-    
+
     for (let i = 0; i < this.ticketCount; i++) {
       this.checkSetNumber();
       this.ticket.setnumber = this.setnumber;
@@ -295,22 +301,39 @@ export class TicketPage {
       this.ticket.isplayed = false;
       this.ticket.date = this.date;
       this.ticket.time = this.time;
-      
+
       if (this.ticket.game = this.sl) {
 
         this.ticket.no = this.countsl + 1;
         this.countsl++;
-      } 
-      else if(this.ticket.game = this.fs)
-      {
+      }
+      else if (this.ticket.game = this.fs) {
         this.ticket.no = this.countfs + 1;
         this.countfs++;
       }
+
       this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
         .subscribe(data => {
 
         });
     };
+    // this.history.date = this.date;
+    // this.history.status = false;
+    // this.history.img = "../../assets/imgs/Ticket.png"
+    // if (this.history.game = this.sl) {
+    //   this.history.detailgame = "Scratch Poker"
+    //   this.history.amouth = this.ticketCount;
+    // }
+    // else if (this.history.game = this.fs) {
+    //   this.history.detailgame = "Fruity Slot"
+    //   this.history.amouth = this.ticketCount;
+    // }
+    // this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
+    //   .subscribe(data => {
+
+    //   });
+
+
     this.navCtrl.pop();
   }
 
