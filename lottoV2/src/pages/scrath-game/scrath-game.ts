@@ -7,6 +7,7 @@ import { GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
 import { User } from '../../models/user';
 import { SettingDetailPage } from '../setting-detail/setting-detail';
+import { ScratchGamePlayPage } from '../scratch-game-play/scratch-game-play';
 
 /**
  * Generated class for the ScrathGamePage page.
@@ -58,7 +59,7 @@ export class ScrathGamePage {
     .subscribe((data) => {
       this.shared.Ticket = data;  
       console.log(this.shared.Ticket);
-      this.navCtrl.push(SettingDetailPage);    
+      this.navCtrl.push(ScratchGamePlayPage);    
     });
   }
 

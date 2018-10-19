@@ -317,21 +317,21 @@ export class TicketPage {
 
         });
     };
-    // this.history.date = this.date;
-    // this.history.status = false;
-    // this.history.img = "../../assets/imgs/Ticket.png"
-    // if (this.history.game = this.sl) {
-    //   this.history.detailgame = "Scratch Poker"
-    //   this.history.amouth = this.ticketCount;
-    // }
-    // else if (this.history.game = this.fs) {
-    //   this.history.detailgame = "Fruity Slot"
-    //   this.history.amouth = this.ticketCount;
-    // }
-    // this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
-    //   .subscribe(data => {
+    this.history.date = this.date;
+    this.history.status = false;
+    this.history.img = "../../assets/imgs/Ticket.png"
+    if (this.history.game = this.sl) {
+      this.history.detailgame = "Scratch Poker"
+      this.history.amouth = this.ticketCount;
+    }
+    else if (this.history.game = this.fs) {
+      this.history.detailgame = "Fruity Slot"
+      this.history.amouth = this.ticketCount;
+    }
+    this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
+      .subscribe(data => {
 
-    //   });
+      });
 
 
     this.navCtrl.pop();

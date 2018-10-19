@@ -16,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SettingDetailPage } from '../pages/setting-detail/setting-detail';
 import { SettingPage } from '../pages/setting/setting';
 import { ScrathGamePage } from '../pages/scrath-game/scrath-game';
+import { ScratchGamePlayPage } from '../pages/scratch-game-play/scratch-game-play';
 import { TicketPage } from '../pages/ticket/ticket';
 import { FruityGamePage } from '../pages/fruity-game/fruity-game';
 import { HttpClient,HttpClientModule } from '@angular/common/http'
@@ -34,9 +35,11 @@ import { EditPage } from '../pages/edit/edit';
     TicketSlotPage,
     TabsPage,
     ScrathGamePage,
+    ScratchGamePlayPage,
     TicketPage,
     FruityGamePage,
-    EditPage
+    EditPage,
+    
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { EditPage } from '../pages/edit/edit';
     TicketSlotPage,
     TabsPage,
     ScrathGamePage,
+    ScratchGamePlayPage,
     TicketPage,
     FruityGamePage,
     EditPage
