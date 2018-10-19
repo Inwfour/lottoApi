@@ -93,6 +93,7 @@ export class ScratchGamePlayPage {
       this.selectedBlock.push(idx);
         if(this.picCount>5){
           this.isDone = true;
+          //this.revealCard()
           this.showResult();
         }
       }
@@ -136,7 +137,7 @@ export class ScratchGamePlayPage {
     this.ticket.isplayed = true;
     this.http.post(GlobalVarible.host + "/api/Ticket/Edit", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
     .subscribe(data => {
-      this.navCtrl.pop();
+      // this.navCtrl.pop();
     });
   }
   

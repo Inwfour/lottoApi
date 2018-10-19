@@ -35,6 +35,8 @@ export class TicketPage {
   gamedetail: any;
   countsl: number;
   countfs: number;
+  ticketAmount:number;
+  
 
   constructor(public Toast: ToastController,
     public navCtrl: NavController,
@@ -96,6 +98,222 @@ export class TicketPage {
     this.rand = (Math.floor((Math.random() * 35) + 1)).toString();
 
   }
+  award9() {
+    this.rand = (Math.floor((Math.random() * 5 + 8))).toString();
+    console.log(this.rand)
+    this.setnumber = this.rand;
+    switch (this.setnumber) {
+      case "8": {
+        this.Num = [2, 1, 35, 28, 51];
+        this.presentToast("case 8 duo");
+        console.log(this.Num);
+        break;
+      } case "9": {
+        this.Num = [44, 40, 35, 31, 21];
+        this.presentToast("case 9 duo");
+        console.log(this.Num);
+        break;
+      } case "10": {
+        this.Num = [22, 37, 27, 17, 9];
+        this.presentToast("case 10 duo");
+        console.log(this.Num);
+        break;
+      } case "11": {
+        this.Num = [13, 1, 35, 18, 52];
+        this.presentToast("case 11 duo");
+        console.log(this.Num);
+        break;
+      } case "12": {
+        this.Num = [37, 38, 21, 11, 3];
+        this.presentToast("case 12 duo");
+        console.log(this.Num);
+        break;
+      }
+      default: {
+        this.presentToast("case is not");
+        break;
+      }
+    }
+  }
+  award8() {
+    this.rand = (Math.floor((Math.random() * 5 + 13))).toString();
+    console.log(this.rand)
+    this.setnumber = this.rand;
+    switch (this.setnumber) {
+      case "13": {
+        this.Num = [2, 22, 28, 11, 35];
+        this.presentToast("case 13 duo2");
+        console.log(this.Num);
+        break;
+      } case "14": {
+        this.Num = [22, 11, 21, 24, 9];
+        this.presentToast("case 14 duo2");
+        console.log(this.Num);
+        break;
+      } case "15": {
+        this.Num = [1, 50, 35, 11, 40];
+        this.presentToast("case 15 duo2");
+        console.log(this.Num);
+        break;
+      } case "16": {
+        this.Num = [19, 20, 27, 14, 45];
+        this.presentToast("case 16 duo2");
+        console.log(this.Num);
+        break;
+      } case "17": {
+        this.Num = [52, 24, 25, 38, 13];
+        this.presentToast("case 17 duo2");
+        console.log(this.Num);
+        break;
+      }
+      default: {
+        this.presentToast("case is not");
+        break;
+      }
+    }
+  }
+  award7() {
+    this.rand = (Math.floor((Math.random() * 4 + 18))).toString();
+    console.log(this.rand)
+    this.setnumber = this.rand;
+    switch (this.setnumber) {
+      case "18": {
+        this.Num = [4, 16, 17, 38, 43];
+        this.presentToast("case 18 tong");
+        console.log(this.Num);
+        break;
+      } case "19": {
+        this.Num = [46, 24, 33, 2, 20];
+        this.presentToast("case 19 tong");
+        console.log(this.Num);
+        break;
+      } case "20": {
+        this.Num = [26, 39, 1, 18, 52];
+        this.presentToast("case 20 tong");
+        console.log(this.Num);
+        break;
+      } case "21": {
+        this.Num = [36, 23, 10, 38, 7];
+        this.presentToast("case 21 tong");
+        console.log(this.Num);
+        break;
+      } default: {
+        this.presentToast("case is not");
+        break;
+      }
+    }
+  }
+  award6() {
+    this.rand = (Math.floor((Math.random() * 3 + 22))).toString();
+    console.log(this.rand)
+    this.setnumber = this.rand;
+    switch (this.setnumber) {
+      case "22": {
+        this.Num = [2, 29, 17, 44, 19];
+        this.presentToast("case 22 stage");
+        console.log(this.Num);
+        break;
+      } case "23": {
+        this.Num = [20, 21, 35, 49, 11];
+        this.presentToast("case 23 stage");
+        console.log(this.Num);
+        break;
+      } case "24": {
+        this.Num = [35, 23, 24, 12, 52];
+        this.presentToast("case 24 stage");
+        console.log(this.Num);
+        break;
+      } default: {
+        this.presentToast("case is not");
+        break;
+      }
+    }
+  }
+  noward() {
+    this.rand = (Math.floor((Math.random() * 7 + 1))).toString();
+    console.log(this.rand)
+    this.setnumber = this.rand;
+    switch (this.setnumber) {
+      case "1": {
+        this.Num = [1, 32, 42, 13, 5];
+        this.presentToast("case 1 high");
+        console.log(this.Num);
+        break;
+      }
+      case "2": {
+        this.Num = [26, 19, 8, 28, 36];
+        this.presentToast("case 2 high");
+        console.log(this.Num);
+        break;
+      }
+      case "3": {
+        this.Num = [6, 2, 39, 40, 22];
+        this.presentToast("case 3 high");
+        console.log(this.Num);
+        break;
+      }
+      case "4": {
+        this.Num = [24, 52, 31, 21, 5];
+        this.presentToast("case 4 high");
+        console.log(this.Num);
+        break;
+      }
+      case "5": {
+        this.Num = [22, 12, 33, 14, 2];
+        this.presentToast("case 5 high");
+        console.log(this.Num);
+        break;
+      } case "6": {
+        this.Num = [25, 29, 37, 40, 16];
+        this.presentToast("case 6 high");
+        console.log(this.Num);
+        break;
+      } case "7": {
+        this.Num = [41, 31, 35, 22, 51];
+        this.presentToast("case 7 high");
+        console.log(this.Num);
+        break;
+      }
+    }
+  }
+  
+  checkticket() {
+    //get ticket from database
+    
+     for(let i = 1; i<=this.ticketCount;i++){
+      this.ticketAmount = (this.countsl+i);
+     // this.ticketAmount = +1;
+    if (this.ticketAmount == 5 || this.ticketAmount == 15 || this.ticketAmount == 20 || this.ticketAmount == 25
+      || this.ticketAmount == 30 || this.ticketAmount == 40 || this.ticketAmount == 45 || this.ticketAmount == 50
+      || this.ticketAmount == 55 || this.ticketAmount == 60) {
+      console.log(this.ticketAmount, " reward 9")
+      this.award9();
+      this.postticket();
+
+    } else if (this.ticketAmount == 10 || this.ticketAmount == 35 || this.ticketAmount == 65 || this.ticketAmount == 95
+      || this.ticketAmount == 125 || this.ticketAmount == 155) {
+      console.log(this.ticketAmount, " reward 8")
+      this.award8();
+      this.postticket();
+
+    } else if (this.ticketAmount == 160 || this.ticketAmount == 320 || this.ticketAmount == 480 || this.ticketAmount == 640) {
+      console.log(this.ticketAmount, " reward 7")
+      this.award7();
+      this.postticket();
+
+    } else if (this.ticketAmount == 800 || this.ticketAmount == 1600 || this.ticketAmount == 2400) {
+      console.log(this.ticketAmount, " reward 6")
+      this.award6();
+      this.postticket();
+
+    }
+    else {
+      console.log(" no reward ")
+      this.noward();
+      this.postticket();
+    }
+ }
+}
   checkSetNumber() {
     this.randomSetNumber();
     this.setnumber = this.rand;
@@ -289,14 +507,8 @@ export class TicketPage {
       }
     }
   }
-
-
-
-  nextConfirm() {
-
-    for (let i = 0; i < this.ticketCount; i++) {
-      this.checkSetNumber();
-      this.ticket.setnumber = this.setnumber;
+  postticket(){
+    this.ticket.setnumber = this.setnumber;
       this.ticket.num = this.Num;
       this.ticket.isplayed = false;
       this.ticket.date = this.date;
@@ -311,12 +523,16 @@ export class TicketPage {
         this.ticket.no = this.countfs + 1;
         this.countfs++;
       }
-
+      console.log("Number : " + this.ticket.no);
       this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
         .subscribe(data => {
 
         });
-    };
+
+  }
+  nextConfirm() {
+      this.checkticket(); 
+
     this.history.date = this.date;
     this.history.status = false;
     this.history.img = "../../assets/imgs/Ticket.png"
