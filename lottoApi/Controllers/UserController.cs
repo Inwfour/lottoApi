@@ -68,6 +68,13 @@ namespace lottoApi.Controllers
             return Collection.Find(x => x.Name == name && x.Password == password).FirstOrDefault();
         }
 
+        [HttpGet("{name}")]
+        public User GetUsername(string name)
+        {
+            return Collection.Find(x => x.Name == name).FirstOrDefault();
+        }
+
+
         [HttpGet("{id}")]
         public User Getdoc(string id)
         {

@@ -22,7 +22,7 @@ export class HomePage {
   countfs:number;
   constructor(public http:HttpClient, public navParams: NavParams,  public navCtrl: NavController,public menuCtrl: MenuController,private shared:SharedDataProvider) {
     this.user = shared.User;
-
+    
   }
 
   ionViewWillEnter() {

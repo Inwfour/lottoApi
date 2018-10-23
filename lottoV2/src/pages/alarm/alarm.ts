@@ -34,6 +34,13 @@ export class AlarmPage {
     });
   }
 
+  ionViewDidLoad() {
+    this.http.get<History>(GlobalVarible.host + "/api/History/List")
+    .subscribe((data) => {
+      this.history = data;
+    });
+  }
+
 
 
 }

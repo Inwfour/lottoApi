@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-import { SharedDataProvider } from '../../providers/shared-data/shared-data';
+
 import { User } from '../../models/user';
 import { Ticket } from '../../models/ticket';
 import { History } from '../../models/history';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-
+import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 /**
  * Generated class for the TicketPage page.
  *
@@ -21,6 +21,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 })
 export class TicketPage {
   ticketCount: number;
+  chanceCoin: number;
   rand: any;
   setnumber: any;
   Num: number[];
@@ -35,8 +36,8 @@ export class TicketPage {
   gamedetail: any;
   countsl: number;
   countfs: number;
-  ticketAmount:number;
-  
+  ticketAmount: number;
+  color: any = "green";
 
   constructor(public Toast: ToastController,
     public navCtrl: NavController,
@@ -55,9 +56,17 @@ export class TicketPage {
   }
 
 
+
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TicketPage');
+    console.log("test");
+    this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
+      .subscribe((data) => {
+        this.user = data;
+      });
   }
+
+
 
   ionViewWillEnter() {
     if (this.sl == null) {
@@ -82,8 +91,25 @@ export class TicketPage {
         this.countfs = data.length;
       });
 
+    this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
+      .subscribe((data) => {
+        this.user = data;
+      });
   }
 
+  //Ticket -> Coin
+  checkTicket() {
+    if (this.ticketCount > this.user.coin) {
+      this.chanceCoin = this.ticketCount;
+      this.color = "red";
+    } else {
+      this.chanceCoin = this.ticketCount;
+      this.color = "green";
+    }
+  }
+
+
+  ///////////////////////////////////
   presentToast(msg) {
     let toast = this
       .Toast
@@ -276,44 +302,44 @@ export class TicketPage {
       }
     }
   }
-  
+
   checkticket() {
     //get ticket from database
-    
-     for(let i = 1; i<=this.ticketCount;i++){
-      this.ticketAmount = (this.countsl+i);
-     // this.ticketAmount = +1;
-    if (this.ticketAmount == 5 || this.ticketAmount == 15 || this.ticketAmount == 20 || this.ticketAmount == 25
-      || this.ticketAmount == 30 || this.ticketAmount == 40 || this.ticketAmount == 45 || this.ticketAmount == 50
-      || this.ticketAmount == 55 || this.ticketAmount == 60) {
-      console.log(this.ticketAmount, " reward 9")
-      this.award9();
-      this.postticket();
 
-    } else if (this.ticketAmount == 10 || this.ticketAmount == 35 || this.ticketAmount == 65 || this.ticketAmount == 95
-      || this.ticketAmount == 125 || this.ticketAmount == 155) {
-      console.log(this.ticketAmount, " reward 8")
-      this.award8();
-      this.postticket();
+    for (let i = 1; i <= this.ticketCount; i++) {
+      this.ticketAmount = (this.countsl + i);
+      // this.ticketAmount = +1;
+      if (this.ticketAmount == 5 || this.ticketAmount == 15 || this.ticketAmount == 20 || this.ticketAmount == 25
+        || this.ticketAmount == 30 || this.ticketAmount == 40 || this.ticketAmount == 45 || this.ticketAmount == 50
+        || this.ticketAmount == 55 || this.ticketAmount == 60) {
+        console.log(this.ticketAmount, " reward 9")
+        this.award9();
+        this.postticket();
 
-    } else if (this.ticketAmount == 160 || this.ticketAmount == 320 || this.ticketAmount == 480 || this.ticketAmount == 640) {
-      console.log(this.ticketAmount, " reward 7")
-      this.award7();
-      this.postticket();
+      } else if (this.ticketAmount == 10 || this.ticketAmount == 35 || this.ticketAmount == 65 || this.ticketAmount == 95
+        || this.ticketAmount == 125 || this.ticketAmount == 155) {
+        console.log(this.ticketAmount, " reward 8")
+        this.award8();
+        this.postticket();
 
-    } else if (this.ticketAmount == 800 || this.ticketAmount == 1600 || this.ticketAmount == 2400) {
-      console.log(this.ticketAmount, " reward 6")
-      this.award6();
-      this.postticket();
+      } else if (this.ticketAmount == 160 || this.ticketAmount == 320 || this.ticketAmount == 480 || this.ticketAmount == 640) {
+        console.log(this.ticketAmount, " reward 7")
+        this.award7();
+        this.postticket();
 
+      } else if (this.ticketAmount == 800 || this.ticketAmount == 1600 || this.ticketAmount == 2400) {
+        console.log(this.ticketAmount, " reward 6")
+        this.award6();
+        this.postticket();
+
+      }
+      else {
+        console.log(" no reward ")
+        this.noward();
+        this.postticket();
+      }
     }
-    else {
-      console.log(" no reward ")
-      this.noward();
-      this.postticket();
-    }
- }
-}
+  }
   checkSetNumber() {
     this.randomSetNumber();
     this.setnumber = this.rand;
@@ -507,74 +533,73 @@ export class TicketPage {
       }
     }
   }
-  postticket(){
+  postticket() {
     this.ticket.setnumber = this.setnumber;
-      this.ticket.num = this.Num;
-      this.ticket.isplayed = false;
-      this.ticket.date = this.date;
-      this.ticket.time = this.time;
+    this.ticket.num = this.Num;
+    this.ticket.isplayed = false;
+    this.ticket.date = this.date;
+    this.ticket.time = this.time;
 
-      if (this.ticket.game = this.sl) {
+    if (this.ticket.game = this.sl) {
 
-        this.ticket.no = this.countsl + 1;
-        this.countsl++;
-      }
-      else if (this.ticket.game = this.fs) {
-        this.ticket.no = this.countfs + 1;
-        this.countfs++;
-      }
-      console.log("Number : " + this.ticket.no);
-      this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
-        .subscribe(data => {
-
-        });
-
-  }
-  nextConfirm() {
-      this.checkticket(); 
-
-    this.history.date = this.date;
-    this.history.status = false;
-    this.history.img = "../../assets/imgs/Ticket.png"
-    if (this.history.game = this.sl) {
-      this.history.detailgame = "Scratch Poker"
-      this.history.amouth = this.ticketCount;
+      this.ticket.no = this.countsl + 1;
+      this.countsl++;
     }
-    else if (this.history.game = this.fs) {
-      this.history.detailgame = "Fruity Slot"
-      this.history.amouth = this.ticketCount;
+    else if (this.ticket.game = this.fs) {
+      this.ticket.no = this.countfs + 1;
+      this.countfs++;
     }
-    this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
+    console.log("Number : " + this.ticket.no);
+    this.http.post(GlobalVarible.host + "/api/Ticket/Create", JSON.stringify(this.ticket), GlobalVarible.httpOptions)
       .subscribe(data => {
 
       });
 
-
-    this.navCtrl.pop();
   }
 
 
-  //     let alert = this.alertCtrl.create({
-  //       title: 'Confirm',
-  //       message: '2 Ticket = 2 Coin',
-  //       buttons: [
-  //         {
-  //           text: 'Cancel',
-  //           role: 'cancel',
-  //           handler: () => {
 
-  //           }
-  //         },
-  //         {
-  //           text: 'Buy',
-  //           handler: () => {
-  //             this.checkSetNumber();
-  //             this.shared.RandomNumbers = this.Num;
-  //             this.navCtrl.pop();
-  //           }
-  //         }
-  //       ]
-  //     });
-  //     alert.present();
+  nextConfirm() {
+    if (this.ticketCount > this.user.coin) {
+      alert("Your money is not enough.");
+    } else if (this.ticketCount == null || this.ticketCount == 0) {
+      alert("Your coin null");
+    }
+    else {
+      this.checkticket();
+      this.history.date = this.date;
+      this.history.status = false;
+      this.history.img = "../../assets/imgs/Ticket.png"
+      if (this.history.game = this.sl) {
+        this.history.detailgame = "Scratch Poker"
+        this.history.amouth = this.ticketCount;
+      }
+      else if (this.history.game = this.fs) {
+        this.history.detailgame = "Fruity Slot"
+        this.history.amouth = this.ticketCount;
+      }
+      this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
+        .subscribe(data => {
+
+        });
+
+      this.user.coin = (Number)(this.user.coin) - (Number)(this.chanceCoin);
+      this.http.post(GlobalVarible.host + "/api/User/Edit", JSON.stringify(this.user), GlobalVarible.httpOptions)
+        .subscribe(data => {
+
+          alert("success !!!");
+          this.navCtrl.pop();
+        });
+      
+    }
+
+
+
+
+  }
+
+
+
+
 }
 

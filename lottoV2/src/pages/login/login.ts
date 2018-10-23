@@ -7,6 +7,8 @@ import { User } from '../../models/user';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient } from '@angular/common/http'
 import { SharedDataProvider } from '../../providers/shared-data/shared-data'
+import { RegisterPage } from '../register/register';
+import { WebPage } from '../web/web';
 /**
  * Generated class for the LoginPage page.
  *
@@ -23,6 +25,7 @@ export class LoginPage {
   name:any;
   password:any;
   constructor(private shared:SharedDataProvider, public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+      
   }
 
   ionViewWillEnter() {
@@ -43,16 +46,12 @@ export class LoginPage {
 
   }
   register(){
-    this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.name + "/" + this.password)
-    .subscribe(data => {
-      this.shared.User = data;
-      if(data == null){
-        alert("not wrong");
-      }else{
-        this.navCtrl.push(TicketScrathPage);
-      }
-    });
 
+        this.navCtrl.push(RegisterPage);
+
+  }
+  money(){
+    this.navCtrl.push(WebPage);
   }
 }
 

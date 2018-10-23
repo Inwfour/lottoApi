@@ -28,16 +28,14 @@ export class FruityGamePage {
     this.user = shared.User;
   }
 
-  // viewDidEnter(){
-  //   this.Num = this.sharedData.RandomNumbers;
-  // }
 
-  // ionViewDidLoad() {
-  //   this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
-  //   .subscribe((data) => {
-  //     this.ticket = data;
-  //   });
-  // }
+  ionViewDidLoad() {
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+    .subscribe((data) => {
+      this.ticket = data;
+      this.count = this.ticket.length;
+    });
+  }
   ionViewWillEnter() {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
     .subscribe((data) => {

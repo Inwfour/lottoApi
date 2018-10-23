@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { PocketMoneyPage } from '../pocket-money/pocket-money';
 import { AlarmPage } from '../alarm/alarm';
@@ -28,11 +28,20 @@ user:User;
 history:History;
 alarmCount:number;
 check:number = 0;
-  constructor(public shared:SharedDataProvider, public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public menuCtrl: MenuController,public shared:SharedDataProvider, public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
   this.user = shared.User;
   this.check = this.navParams.get("check");
+  
   }
   ionViewWillEnter() {
+    this.menuCtrl.close();
+    this.http.get<History[]>(GlobalVarible.host + "/api/History/List")
+    .subscribe((data) => {
+      this.alarmCount = data.length;
+      
+    });
+  }
+  ionViewDidLoad() {
     this.http.get<History[]>(GlobalVarible.host + "/api/History/List")
     .subscribe((data) => {
       this.alarmCount = data.length;

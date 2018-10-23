@@ -22,6 +22,9 @@ import { FruityGamePage } from '../pages/fruity-game/fruity-game';
 import { HttpClient,HttpClientModule } from '@angular/common/http'
 import { SharedDataProvider } from '../providers/shared-data/shared-data';
 import { EditPage } from '../pages/edit/edit';
+import { RegisterPage } from '../pages/register/register';
+import { WebPage } from '../pages/web/web';
+import { BuycoinPage } from '../pages/buycoin/buycoin';
 @NgModule({
   declarations: [
     MyApp,
@@ -39,6 +42,9 @@ import { EditPage } from '../pages/edit/edit';
     TicketPage,
     FruityGamePage,
     EditPage,
+    RegisterPage,
+    WebPage,
+    BuycoinPage
     
   ],
   imports: [
@@ -64,7 +70,10 @@ import { EditPage } from '../pages/edit/edit';
     ScratchGamePlayPage,
     TicketPage,
     FruityGamePage,
-    EditPage
+    EditPage,
+    RegisterPage,
+    WebPage,
+    BuycoinPage
   ],
   providers: [
     StatusBar,
