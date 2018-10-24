@@ -26,6 +26,7 @@ import { RegisterPage } from '../pages/register/register';
 import { WebPage } from '../pages/web/web';
 import { BuycoinPage } from '../pages/buycoin/buycoin';
 import { OutmoneyPage } from '../pages/outmoney/outmoney';
+import { ShowresultPage } from '../pages/showresult/showresult';
 @NgModule({
   declarations: [
     MyApp,
@@ -46,7 +47,8 @@ import { OutmoneyPage } from '../pages/outmoney/outmoney';
     RegisterPage,
     WebPage,
     BuycoinPage,
-    OutmoneyPage
+    OutmoneyPage,
+    ShowresultPage
     
   ],
   imports: [
@@ -76,7 +78,8 @@ import { OutmoneyPage } from '../pages/outmoney/outmoney';
     RegisterPage,
     WebPage,
     BuycoinPage,
-    OutmoneyPage
+    OutmoneyPage,
+    ShowresultPage
   ],
   providers: [
     StatusBar,
