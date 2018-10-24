@@ -573,15 +573,15 @@ export class TicketPage {
       this.checkticket();
       this.history.date = this.date;
       this.history.time = this.time;
-      this.history.status = false;
+      this.history.type = 1;
       this.history.img = "../../assets/imgs/Ticket.png"
       if (this.history.game = this.sl) {
         this.history.detailgame = "Scratch Poker"
-        this.history.amouth = this.ticketCount;
+        this.history.amouth = "Buy " + this.ticketCount;
       }
       else if (this.history.game = this.fs) {
         this.history.detailgame = "Fruity Slot"
-        this.history.amouth = this.ticketCount;
+        this.history.amouth = "Buy " + this.ticketCount;
       }
       this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
         .subscribe(data => {

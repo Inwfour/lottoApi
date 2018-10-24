@@ -2,6 +2,7 @@ import { DateTime } from "ionic-angular/umd";
 
 export class History{
     id:string;
+    type:number;
     img:string;
     refid:string;
     game:string;
@@ -9,7 +10,5 @@ export class History{
     serialnumber:string;
     date:string;
     time:string;
-    status:boolean;
-    statusgame:string;
-    amouth:number;
+    amouth:string;
 }

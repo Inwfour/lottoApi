@@ -38,14 +38,14 @@ num:number = 0;
   }
   ionViewWillEnter() {
     this.menuCtrl.close();
-    this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
+    this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/2")
     .subscribe((data) => {
       this.alarmCount = data.length;
       
     });
   }
   ionViewDidLoad() {
-    this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
+    this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/2")
     .subscribe((data) => {
       this.alarmCount = data.length;
     });

@@ -71,11 +71,12 @@ export class BuycoinPage {
       else {
         this.history.date = this.date;
         this.history.time = this.time;
-        this.history.status = false;
+        this.history.type = 1;
         this.history.img = "../../assets/imgs/Coin.png"
         this.history.amouth = this.coinCount;
         this.history.game = "coin";
-        this.history.detailgame = "Use " + this.chanceMoney + " Baht";
+        // this.history.detailgame = "Use " + this.chanceMoney + " Baht";
+        this.history.detailgame = "Buy";
         this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
           .subscribe(data => {
 

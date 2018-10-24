@@ -41,8 +41,6 @@ export class OutmoneyPage {
   }
 
   ionViewWillEnter() {
-
-
     this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
       .subscribe((data) => {
         this.user = data;
@@ -61,9 +59,9 @@ export class OutmoneyPage {
               this.userme = this.user.name
               this.history.date = this.date;
               this.history.time = this.time;
-              this.history.status = false;
+              this.history.type =2
               this.history.img = "../../assets/imgs/Coin_BHT.png"
-              this.history.amouth = this.money;
+              this.history.amouth = "Out " + this.money;
               this.history.game = "outmoney";
               this.history.detailgame = "To  " + this.name;
               this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
@@ -75,9 +73,9 @@ export class OutmoneyPage {
               this.history.refid = this.user.id;
               this.history.date = this.date;
               this.history.time = this.time;
-              this.history.status = false;
+              this.history.type = 2;
               this.history.img = "../../assets/imgs/Coin_BHT.png"
-              this.history.amouth = this.money;
+              this.history.amouth = "Get " + this.money;
               this.history.game = "outmoney";
               this.history.detailgame = "From " + this.userme;
               this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)

@@ -53,10 +53,10 @@ namespace lottoApi.Controllers
             Collection.ReplaceOne(x => x.Id == request.Id, request);
         }
 
-        [HttpGet("[action]/{id}")]
-        public History Get(string id)
+        [HttpGet("[action]/{id}/{type}")]
+        public IEnumerable<History> GetHistory(string id, int type)
         {
-            return Collection.Find(x => x.Id == id).FirstOrDefault();
+            return Collection.Find(x => x.RefId == id && x.Type == type).SortBy(x => x.Date).SortBy(x => x.Time).ToList();
         }
 
         [HttpGet("[action]/{id}")]

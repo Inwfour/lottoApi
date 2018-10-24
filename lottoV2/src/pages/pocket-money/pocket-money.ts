@@ -37,7 +37,7 @@ export class PocketMoneyPage {
         this.user = data;
     });
   
-    this.http.get<History>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
+    this.http.get<History>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id  + "/1")
     .subscribe((data) => {
       this.history = data;
     });
@@ -49,7 +49,7 @@ export class PocketMoneyPage {
         this.user = data;
     });
   
-    this.http.get<History>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
+    this.http.get<History>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/1")
     .subscribe((data) => {
       this.history = data;
     });

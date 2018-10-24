@@ -5,6 +5,7 @@ namespace lottoApi.Models
     public class History
     {
         public string Id { get; set; }
+        public int Type { get; set; }
         public string Img { get; set; }
         public string RefId { get; set; }
         public string Game { get; set; }
@@ -12,9 +13,8 @@ namespace lottoApi.Models
         public int SerialNumber { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
-        public bool Status { get; set; }
-        public string StatusGame { get; set; }
-        public int Amouth { get; set; }
+        
+        public string Amouth { get; set; }
 
     }
 }
