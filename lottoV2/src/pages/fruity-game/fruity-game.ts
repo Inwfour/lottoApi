@@ -21,6 +21,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http'
 export class FruityGamePage {
   Num: number[] = [];
   ticket:Ticket[];
+  ticket2:Ticket[];
   user:User;
   fs="fs";
   count:number;
@@ -29,29 +30,43 @@ export class FruityGamePage {
   }
 
 
-  ionViewDidLoad() {
-    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
-    .subscribe((data) => {
-      this.ticket = data;
-      // this.count = this.ticket.length;
-    });
+  ionViewWillLoad() {
+
+    // this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl" + "/false")
+    // .subscribe((data) => {
+    //   this.ticket = data;
+    //   // this.count = data.length;
+    // });
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/false")
     .subscribe((data) => {
-      // this.ticket = data;
+      this.ticket = data;
       this.count = data.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/true")
+    .subscribe((data) => {
+      this.ticket2 = data;
+     
     });
   }
+  
+
   ionViewWillEnter() {
-    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
+    // this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
+    // .subscribe((data) => {
+    //   this.ticket = data;
+    //   // this.count = data.length;
+    // });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/false")
     .subscribe((data) => {
       this.ticket = data;
       this.count = data.length;
     });
-    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/false")
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/true")
     .subscribe((data) => {
-      // this.ticket = data;
-      this.count = data.length;
+      this.ticket2 = data;
+     
     });
+
 }
 
   nextTicket(fs:string){
