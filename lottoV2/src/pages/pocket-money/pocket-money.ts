@@ -7,6 +7,7 @@ import { GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
 import { WebPage } from '../web/web';
 import { BuycoinPage } from '../buycoin/buycoin';
+import { OutmoneyPage } from '../outmoney/outmoney';
 
 /**
  * Generated class for the PocketMoneyPage page.
@@ -36,21 +37,19 @@ export class PocketMoneyPage {
         this.user = data;
     });
   
-    this.http.get<History>(GlobalVarible.host + "/api/History/List")
+    this.http.get<History>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
     .subscribe((data) => {
       this.history = data;
     });
   }
 
   ionViewWillEnter() {
-    
-
     this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
     .subscribe((data) => {
         this.user = data;
     });
   
-    this.http.get<History>(GlobalVarible.host + "/api/History/List")
+    this.http.get<History>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
     .subscribe((data) => {
       this.history = data;
     });
@@ -78,6 +77,10 @@ export class PocketMoneyPage {
 
   buycoin() {
       this.navCtrl.push(BuycoinPage);
+  }
+
+  outmoney(){
+    this.navCtrl.push(OutmoneyPage);
   }
 
 }

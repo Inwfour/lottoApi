@@ -28,21 +28,24 @@ user:User;
 history:History;
 alarmCount:number;
 check:number = 0;
+num:number = 0;
   constructor(public menuCtrl: MenuController,public shared:SharedDataProvider, public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
   this.user = shared.User;
   this.check = this.navParams.get("check");
+  this.num = this.navParams.get("checknum");
+
   
   }
   ionViewWillEnter() {
     this.menuCtrl.close();
-    this.http.get<History[]>(GlobalVarible.host + "/api/History/List")
+    this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
     .subscribe((data) => {
       this.alarmCount = data.length;
       
     });
   }
   ionViewDidLoad() {
-    this.http.get<History[]>(GlobalVarible.host + "/api/History/List")
+    this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id)
     .subscribe((data) => {
       this.alarmCount = data.length;
     });

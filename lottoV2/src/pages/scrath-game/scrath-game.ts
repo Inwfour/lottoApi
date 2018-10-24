@@ -35,6 +35,11 @@ export class ScrathGamePage {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     .subscribe((data) => {
       this.ticket = data;
+      // this.count = data.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/sl" + "/false")
+    .subscribe((data) => {
+      // this.ticket = data;
       this.count = data.length;
     });
   }
@@ -44,8 +49,12 @@ export class ScrathGamePage {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     .subscribe((data) => {
       this.ticket = data;
+      // this.count = data.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/sl" + "/false")
+    .subscribe((data) => {
+      // this.ticket = data;
       this.count = data.length;
-      
     });
 
 }

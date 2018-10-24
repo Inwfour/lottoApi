@@ -15,13 +15,15 @@
 
 <ion-content padding>
     <ion-list ion-item  *ngFor="let h of history">   
-      <ion-item no-lines *ngIf="h.status == false">
+      <ion-item no-lines (click)="nextHistory(h.game)" *ngIf="h.status == false">
           <div no-padding item-start>
             <img [src]="h.img" width="50px" >
           </div>
-          <h2>Buy : {{ h.amouth }} Tickets</h2>
+          <h2>Buy : {{ h.amouth }}</h2>
           <p>{{ h.detailGame }}</p>
-          <ion-note item-end>{{ h.date }}</ion-note>     
+          <ion-note item-end>{{ h.date }}</ion-note>  
+
+           
         </ion-item>
       </ion-list>
       

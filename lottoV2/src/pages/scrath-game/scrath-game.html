@@ -26,8 +26,8 @@
     <ion-grid style="padding: 10px">
         <ion-label>Your Ticket</ion-label>
         <button (click)="nextTicket(sl)" ion-button style="background-color: green;border-radius: 10px;width: 100%">+ Add Ticket</button>
-        <ion-card style="background-color: green;border-radius: 10px"  *ngFor="let t of ticket ">
-            <ion-row style="padding:3px" (click)="NextGame(t.id)" >
+        <ion-card style="background-color: green;border-radius: 10px"  *ngFor="let t of ticket " >
+            <ion-row style="padding:3px" (click)="NextGame(t.id)" *ngIf="t.isPlayed == false">
                 <ion-col col-3>
                     <ion-label style="color: white">No. {{t.no}}</ion-label>
                 </ion-col>
@@ -39,5 +39,21 @@
                 </ion-col>
             </ion-row>
         </ion-card>
+        <ion-card style="background-color: gray;border-radius: 10px"  *ngFor="let t of ticket " >
+            <ion-row style="padding:3px" *ngIf="t.isPlayed == true">
+                <ion-col col-3>
+                    <ion-label style="color: white">No. {{t.no}}</ion-label>
+                </ion-col>
+                <ion-col col-9 style="text-align: right;">
+                    <ion-label style="color: white">{{t.date}}</ion-label>
+                </ion-col>
+                <ion-col col-12>
+                    <ion-label style="color: white">Serial Number : {{t.serialNumber}}</ion-label>
+                </ion-col>
+            </ion-row>
+
+        </ion-card>
+
+
     </ion-grid>
 </ion-content>

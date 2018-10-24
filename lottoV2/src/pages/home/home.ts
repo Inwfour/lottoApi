@@ -29,26 +29,38 @@ export class HomePage {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     .subscribe((data) => {
       this.ticket = data;
-      this.countsl = this.ticket.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/sl" + "/false")
+    .subscribe((data) => {
+      this.countsl = data.length;
     });
 
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
     .subscribe((data) => {
       this.ticket = data;
-      this.countfs = this.ticket.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/false")
+    .subscribe((data) => {
+      this.countfs = data.length;
     });
   }
   ionViewDidLoad() {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     .subscribe((data) => {
       this.ticket = data;
-      this.countsl = this.ticket.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/sl" + "/false")
+    .subscribe((data) => {
+      this.countsl = data.length;
     });
 
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
     .subscribe((data) => {
       this.ticket = data;
-      this.countfs = this.ticket.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/false")
+    .subscribe((data) => {
+      this.countfs = data.length;
     });
   }
 

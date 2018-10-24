@@ -7,6 +7,8 @@ import { History } from '../../models/history';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
+import { PocketMoneyPage } from '../pocket-money/pocket-money';
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the TicketPage page.
  *
@@ -38,6 +40,7 @@ export class TicketPage {
   countfs: number;
   ticketAmount: number;
   color: any = "green";
+  tab2Root = PocketMoneyPage;
 
   constructor(public Toast: ToastController,
     public navCtrl: NavController,
@@ -561,6 +564,7 @@ export class TicketPage {
 
   nextConfirm() {
     if (this.ticketCount > this.user.coin) {
+      this.navCtrl.push(TabsPage,{checknum:1});
       alert("Your money is not enough.");
     } else if (this.ticketCount == null || this.ticketCount == 0) {
       alert("Your coin null");
@@ -568,6 +572,7 @@ export class TicketPage {
     else {
       this.checkticket();
       this.history.date = this.date;
+      this.history.time = this.time;
       this.history.status = false;
       this.history.img = "../../assets/imgs/Ticket.png"
       if (this.history.game = this.sl) {

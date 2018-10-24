@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using lottoApi.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace lottoApi.Controllers
 {
+
     [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     [Route("api/[controller]")]
     public class TicketController : Controller
@@ -66,6 +68,13 @@ namespace lottoApi.Controllers
         {
 
             return Collection.Find(x => x.RefId == id && x.Game == game).SortBy(x => x.No).ToList();
+        }
+
+        [HttpGet("[action]/{id}/{game}/{isPlayed}")]
+        public IEnumerable<Ticket> Getstatus(string id, string game,bool isPlayed)
+        {
+
+            return Collection.Find(x => x.RefId == id && x.Game == game && x.IsPlayed == isPlayed).SortBy(x => x.No).ToList();
         }
     }
 }

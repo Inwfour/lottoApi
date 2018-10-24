@@ -35,6 +35,7 @@ export class WebPage {
   change() {
     this.http.get<User>(GlobalVarible.host + "/api/User/GetUsername/" + this.name)
       .subscribe((data) => {
+        if(data != null){
         this.user = data;
         this.user.money = (Number)(this.user.money) + (Number)(this.moneyFinal);
         this.http.post(GlobalVarible.host + "/api/User/Edit", JSON.stringify(this.user), GlobalVarible.httpOptions)
@@ -42,6 +43,9 @@ export class WebPage {
             alert("success !!!");
             this.navCtrl.pop();
           });
+        }else{
+          alert("Not found username");
+        }
       });
 
   }

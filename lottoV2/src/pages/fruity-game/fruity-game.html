@@ -26,7 +26,7 @@
   <ion-grid style="padding: 10px">
       <ion-label>Your Ticket</ion-label>
       <button (click)="nextTicket(fs)" ion-button style="background-color: green;border-radius: 10px;width: 100%">+ Add Ticket</button>
-      <ion-card style="background-color: green;border-radius: 10px" (click)="NextGame()" *ngFor="let t of ticket?.reverse()">
+      <ion-card style="background-color: green;border-radius: 10px" (click)="NextGame()" *ngFor="let t of ticket">
           <ion-row style="padding:3px">
               <ion-col col-3>
                   <ion-label style="color: white">No. {{t.no}}</ion-label>

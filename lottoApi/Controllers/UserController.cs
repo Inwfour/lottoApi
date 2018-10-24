@@ -15,7 +15,6 @@ namespace lottoApi.Controllers
     public class UserController : Controller
     {
         IMongoCollection<User> Collection { get; set; }
-        IMongoCollection<Ticket> Collection1 { get; set; }
 
         public UserController()
         {
@@ -27,7 +26,6 @@ namespace lottoApi.Controllers
             var mongoClient = new MongoClient(settings);
             var database = mongoClient.GetDatabase("user");
             Collection = database.GetCollection<User>("userlist");
-            Collection1 = database.GetCollection<Ticket>("tickets");
         }
 
         [HttpGet("")]

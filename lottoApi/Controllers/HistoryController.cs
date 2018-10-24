@@ -58,5 +58,12 @@ namespace lottoApi.Controllers
         {
             return Collection.Find(x => x.Id == id).FirstOrDefault();
         }
+
+        [HttpGet("[action]/{id}")]
+        public IEnumerable<History> GetHistory(string id)
+        {
+
+            return Collection.Find(x => x.RefId == id).SortBy(x => x.Date).SortBy(x => x.Time).ToList();
+        }
     }
 }

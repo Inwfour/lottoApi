@@ -11,6 +11,7 @@ namespace lottoApi.Models
         public string DetailGame { get; set; }
         public int SerialNumber { get; set; }
         public string Date { get; set; }
+        public string Time { get; set; }
         public bool Status { get; set; }
         public string StatusGame { get; set; }
         public int Amouth { get; set; }

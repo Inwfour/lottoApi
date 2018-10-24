@@ -8,6 +8,7 @@ export class History{
     detailgame:string;
     serialnumber:string;
     date:string;
+    time:string;
     status:boolean;
     statusgame:string;
     amouth:number;

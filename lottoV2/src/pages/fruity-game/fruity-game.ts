@@ -33,19 +33,33 @@ export class FruityGamePage {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
     .subscribe((data) => {
       this.ticket = data;
-      this.count = this.ticket.length;
+      // this.count = this.ticket.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/false")
+    .subscribe((data) => {
+      // this.ticket = data;
+      this.count = data.length;
     });
   }
   ionViewWillEnter() {
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/fs")
     .subscribe((data) => {
       this.ticket = data;
-      this.count = this.ticket.length;
+      this.count = data.length;
+    });
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getstatus/" + this.user.id + "/fs" + "/false")
+    .subscribe((data) => {
+      // this.ticket = data;
+      this.count = data.length;
     });
 }
 
   nextTicket(fs:string){
     this.navCtrl.push(TicketPage,{fs:this.fs});
+  }
+
+  NextGame(){
+    alert("つづく !!!");
   }
 
 }
