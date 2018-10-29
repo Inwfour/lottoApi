@@ -13,7 +13,6 @@ namespace lottoApi.Models
         public int SerialNumber { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
-        
         public string Amouth { get; set; }
 
     }
