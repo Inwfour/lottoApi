@@ -27,6 +27,8 @@ import { WebPage } from '../pages/web/web';
 import { BuycoinPage } from '../pages/buycoin/buycoin';
 import { OutmoneyPage } from '../pages/outmoney/outmoney';
 import { ShowresultPage } from '../pages/showresult/showresult';
+import { HowtoSlotPage } from '../pages/howto-slot/howto-slot';
+import { HowtoScratchPage } from '../pages/howto-scratch/howto-scratch';
 @NgModule({
   declarations: [
     MyApp,
@@ -48,8 +50,9 @@ import { ShowresultPage } from '../pages/showresult/showresult';
     WebPage,
     BuycoinPage,
     OutmoneyPage,
-    ShowresultPage
-    
+    ShowresultPage,
+    HowtoScratchPage,
+    HowtoSlotPage
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,9 @@ import { ShowresultPage } from '../pages/showresult/showresult';
     WebPage,
     BuycoinPage,
     OutmoneyPage,
-    ShowresultPage
+    ShowresultPage,
+    HowtoSlotPage,
+    HowtoScratchPage
   ],
   providers: [
     StatusBar,

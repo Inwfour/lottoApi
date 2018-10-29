@@ -6,6 +6,7 @@ import { Ticket } from '../../models/ticket';
 import { User } from '../../models/user';
 import { GlobalVarible } from '../../app/models';
 import { HttpClient,HttpHeaders } from '@angular/common/http'
+import { HowtoSlotPage } from '../howto-slot/howto-slot';
 /**
  * Generated class for the FruityGamePage page.
  *
@@ -75,6 +76,9 @@ export class FruityGamePage {
 
   NextGame(){
     alert("つづく !!!");
+  }
+  HowtoSlot(){
+    this.navCtrl.push(HowtoSlotPage)
   }
 
 }

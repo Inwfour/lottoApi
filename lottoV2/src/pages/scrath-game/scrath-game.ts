@@ -8,6 +8,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http'
 import { User } from '../../models/user';
 import { SettingDetailPage } from '../setting-detail/setting-detail';
 import { ScratchGamePlayPage } from '../scratch-game-play/scratch-game-play';
+import { HowtoScratchPage } from '../howto-scratch/howto-scratch';
 
 /**
  * Generated class for the ScrathGamePage page.
@@ -83,6 +84,9 @@ export class ScrathGamePage {
       console.log(this.shared.Ticket);
       this.navCtrl.push(ScratchGamePlayPage);    
     });
+  }
+  HowtoScrath(){
+    this.navCtrl.push(HowtoScratchPage)
   }
 
 }
