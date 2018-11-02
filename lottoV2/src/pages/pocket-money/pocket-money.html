@@ -37,7 +37,6 @@
     </ion-grid>
   </ion-card>
   <br>
-  <br>
 
   <ion-card class="a1">
     <div text-center>
@@ -66,17 +65,18 @@
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: start">
-          {{ h.date }}
+          <h4><p>{{ h.date }}</p></h4>
         </ion-col>
-        <ion-col style="text-align: center">
-          {{ h.amouth }}
+        <ion-col style="text-align: right">
+          <h4>{{ h.amouth }}</h4>
+        </ion-col>
+        <ion-col style="text-align: left;">
           <img [src]="h.img" width="25px">
         </ion-col>
         <ion-col style="text-align: end">
-          {{ h.detailGame }}
+          <h4> {{ h.detailGame }}</h4>
         </ion-col>
       </ion-row>
-
     </ion-grid>
   </ion-list>
 
