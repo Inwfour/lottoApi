@@ -37,6 +37,7 @@ num:number = 0;
   
   }
   ionViewWillEnter() {
+    console.log("Ok Will Enter");
     this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/2")
     .subscribe((data) => {
       this.alarmCount = data.length;
@@ -48,16 +49,30 @@ num:number = 0;
     });
   }
   ionViewDidLoad() {
-    this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/2")
-    .subscribe((data) => {
-      this.alarmCount = data.length;
-    });
+    console.log("Ok Did Load");
+    // this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/2")
+    // .subscribe((data) => {
+    //   this.alarmCount = data.length;
+    // });
 
-    this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
-    .subscribe((data) => {
-        this.user = data;
-    });
+    // this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
+    // .subscribe((data) => {
+    //     this.user = data;
+    // });
   }
+  ionViewDidEnter(){
+    console.log("Ok Did Enter");
+  }
+  ionViewWillLeave(){
+    console.log("Ok Will leave");
+  }
+  ionViewDidLeave(){
+    console.log("OK Did leave");
+  }
+  ionViewWillUnload(){
+    console.log("Ok Will unload");
+  }
+
 
 
 }

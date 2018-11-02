@@ -3,11 +3,14 @@ export class Ticket {
     id:string;
     refid:string;
     no:number;
-    game:string;
     serialnumber:number;
+    collection:number;
+    award:number;
+    game:string;
     date:string;
     time:string;
     isplayed:boolean;
     setnumber:number;
     num:number[];
+
 }

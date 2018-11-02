@@ -7,8 +7,10 @@ namespace lottoApi.Models
         public string Id { get; set; }
         public string RefId { get; set; }
         public int No { get; set;}
-        public string Game { get; set; }
         public int SerialNumber { get; set; }
+        public string Game { get; set; }
+        public int Collection { get; set; }
+        public int Award { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
         public bool IsPlayed { get; set; }

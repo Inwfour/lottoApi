@@ -74,7 +74,7 @@ namespace lottoApi.Controllers
         public IEnumerable<Ticket> Getstatus(string id, string game,bool isPlayed)
         {
 
-            return Collection.Find(x => x.RefId == id && x.Game == game && x.IsPlayed == isPlayed).SortBy(x => x.No).ToList();
+            return Collection.Find(x => x.RefId == id && x.Game == game && x.IsPlayed == isPlayed).SortByDescending(x => x.No).ToList();
         }
     }
 }

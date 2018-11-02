@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 import { PocketMoneyPage } from '../pocket-money/pocket-money';
 import { TabsPage } from '../tabs/tabs';
+import { ScrathGamePage } from '../scrath-game/scrath-game';
 /**
  * Generated class for the TicketPage page.
  *
@@ -593,7 +594,7 @@ export class TicketPage {
         .subscribe(data => {
 
           alert("success !!!");
-          this.navCtrl.pop();
+          this.navCtrl.push(TabsPage, { checknum: 0 });
         });
       
     }
