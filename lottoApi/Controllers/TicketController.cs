@@ -56,12 +56,6 @@ namespace lottoApi.Controllers
             Collection.ReplaceOne(x => x.Id == request.Id, request);
         }
 
-        [HttpGet("[action]/{id}")]
-        public Ticket Get(string id)
-        {
-            return Collection.Find(x => x.Id == id).FirstOrDefault();
-        }
-
 
         [HttpGet("[action]/{id}/{game}")]
         public IEnumerable<Ticket> Getticket(string id, string game)

@@ -23,6 +23,7 @@ import { ScrathGamePage } from '../scrath-game/scrath-game';
   templateUrl: 'ticket.html',
 })
 export class TicketPage {
+  
   ticketCount: number;
   chanceCoin: number;
   rand: any;
@@ -37,6 +38,7 @@ export class TicketPage {
   fs: string;
   ansgame: any;
   gamedetail: any;
+  count: number;
   countsl: number;
   countfs: number;
   ticketAmount: number;
@@ -84,6 +86,12 @@ export class TicketPage {
       this.ticket.game = this.sl;
       this.gamedetail = "Scratch Poker"
     }
+
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/List")
+      .subscribe((data) => {
+        this.count = data.length;
+
+      });
 
     this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
       .subscribe((data) => {
@@ -349,6 +357,8 @@ export class TicketPage {
     this.ticket.isplayed = false;
     this.ticket.date = this.date;
     this.ticket.time = this.time;
+    this.ticket.serialnumber = this.count;
+    this.count++;
 
     if (this.ticket.game = this.sl) {
 
@@ -390,16 +400,19 @@ export class TicketPage {
       else if (this.history.game = this.fs) {
         this.history.detailgame = "Fruity Slot"
         this.history.amouth = "Buy " + this.ticketCount;
+        this.checkticketScratch();
       }
+      // let TIME_IN_MS = 5000;
+      // let hideFooterTimeout = setTimeout( () => {
       this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
         .subscribe(data => {
 
         });
+      // }, TIME_IN_MS);
 
       this.user.coin = (Number)(this.user.coin) - (Number)(this.chanceCoin);
       this.http.post(GlobalVarible.host + "/api/User/Edit", JSON.stringify(this.user), GlobalVarible.httpOptions)
         .subscribe(data => {
-
           alert("success !!!");
           this.navCtrl.push(TabsPage, { checknum: 0 });
         });

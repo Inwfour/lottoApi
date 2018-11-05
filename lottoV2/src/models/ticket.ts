@@ -1,4 +1,3 @@
-import { DateTime } from "ionic-angular/umd";
 export class Ticket {
     id:string;
     refid:string;
@@ -12,5 +11,4 @@ export class Ticket {
     isplayed:boolean;
     setnumber:number;
     num:number[];
-
 }
