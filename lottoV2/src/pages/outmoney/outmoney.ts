@@ -37,17 +37,13 @@ export class OutmoneyPage {
       .subscribe((data) => {
         this.user = data;
       });
-
   }
-
   ionViewWillEnter() {
     this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
       .subscribe((data) => {
         this.user = data;
       });
-
   }
-
   confirm() {
     if (this.name != this.user.name) {
       if (this.money <= this.user.money && this.money > 0) {

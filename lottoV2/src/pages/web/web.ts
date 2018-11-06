@@ -31,7 +31,6 @@ export class WebPage {
       this.history = this.shared.History;
   }
 
-
   change() {
     this.http.get<User>(GlobalVarible.host + "/api/User/GetUsername/" + this.name)
       .subscribe((data) => {

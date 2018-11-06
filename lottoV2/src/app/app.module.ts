@@ -19,7 +19,7 @@ import { ScrathGamePage } from '../pages/scrath-game/scrath-game';
 import { ScratchGamePlayPage } from '../pages/scratch-game-play/scratch-game-play';
 import { TicketPage } from '../pages/ticket/ticket';
 import { FruityGamePage } from '../pages/fruity-game/fruity-game';
-import { HttpClient,HttpClientModule } from '@angular/common/http'
+import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { SharedDataProvider } from '../providers/shared-data/shared-data';
 import { EditPage } from '../pages/edit/edit';
 import { RegisterPage } from '../pages/register/register';
