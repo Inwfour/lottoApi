@@ -300,7 +300,7 @@ export class TicketPage {
         console.log(this.NumScratch);
         break;
       } case "6": {
-        this.NumScratch = [25, 29, 37, 40, 38];
+        this.NumScratch = [23, 29, 37, 40, 38];
         this.presentToast("case 6 high");
         console.log(this.NumScratch);
         break;
