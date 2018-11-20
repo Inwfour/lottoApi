@@ -24,7 +24,11 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      if(this.platform.is('cordova')){
+        this.platform.ready().then(()=>{
+         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        })
+      }
     });
   }
 

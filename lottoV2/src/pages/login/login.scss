@@ -35,20 +35,19 @@ page-login {
         border-radius: 50px;
         background-color: blue
     }
-  
-}
-$height100: 90%;
-ion-grid {
-    width:100%;
-    height: $height100;
-}
-
-ion-row {
-    height: $height100;
-}
-@media (min-width: 240px) and (max-width: 768px) {
-
-    ion-col {
-        border: none;
+    $height100: 90%;
+    ion-grid {
+        width:100%;
+        height: $height100;
+    }
+    
+    ion-row {
+        height: $height100;
+    }
+    @media (min-width: 240px) and (max-width: 768px) {
+    
+        ion-col {
+            border: none;
+        }
     }
 }
