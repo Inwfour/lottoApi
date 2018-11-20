@@ -23,9 +23,9 @@ import { ScrathGamePage } from '../scrath-game/scrath-game';
   templateUrl: 'ticket.html',
 })
 export class TicketPage {
-  
+
   ticketCount: number;
-  textAward:string;
+  textAward: string;
   chanceCoin: number;
   rand: any;
   setnumber: any;
@@ -42,6 +42,8 @@ export class TicketPage {
   count: number;
   countsl: number;
   countfs: number;
+  countSerialsl: number;
+  countSerialfs: number;
   ticketAmount: number;
   color: any = "green";
   tab2Root = PocketMoneyPage;
@@ -88,9 +90,14 @@ export class TicketPage {
       this.gamedetail = "Scratch Poker"
     }
 
-    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/List")
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/GetticketGame/sl")
       .subscribe((data) => {
-        this.count = data.length;
+        this.countSerialsl = data.length;
+
+      });
+      this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/GetticketGame/fs")
+      .subscribe((data) => {
+        this.countSerialfs = data.length;
 
       });
 
@@ -134,7 +141,7 @@ export class TicketPage {
     this.navCtrl.pop();
   }
 
-  
+
   award9Scratch() {
     this.rand = (Math.floor((Math.random() * 5 + 8))).toString();
     console.log(this.rand)
@@ -375,7 +382,7 @@ export class TicketPage {
       }
     }
   }
-  
+
   postticket() {
     this.ticket.setnumber = this.setnumber;
     this.ticket.num = this.NumScratch;
@@ -383,15 +390,17 @@ export class TicketPage {
     this.ticket.date = this.date;
     this.ticket.time = this.time;
     this.ticket.textAward = this.textAward;
-    this.ticket.serialnumber = this.count;
-    this.count++;
 
     if (this.ticket.game = this.sl) {
       this.ticket.no = this.countsl + 1;
+      this.ticket.serialnumber = this.countSerialsl + 1;
+      this.countSerialsl++;
       this.countsl++;
     }
     else if (this.ticket.game = this.fs) {
       this.ticket.no = this.countfs + 1;
+      this.ticket.serialnumber = this.countSerialfs + 1;
+      this.countSerialfs++;
       this.countfs++;
     }
     console.log("Number : " + this.ticket.no);
@@ -406,13 +415,13 @@ export class TicketPage {
 
   nextConfirm() {
     if (this.ticketCount > this.user.coin) {
-      this.navCtrl.push(TabsPage,{checknum:1});
+      this.navCtrl.push(TabsPage, { checknum: 1 });
       alert("Your money is not enough.");
     } else if (this.ticketCount == null || this.ticketCount == 0) {
       alert("Your coin null");
     }
     else {
-      
+
       this.history.date = this.date;
       this.history.time = this.time;
       this.history.type = 1;
@@ -441,16 +450,7 @@ export class TicketPage {
           alert("success !!!");
           this.navCtrl.push(TabsPage, { checknum: 0 });
         });
-      
     }
-
-
-
-
   }
-
-
-
-
 }
 

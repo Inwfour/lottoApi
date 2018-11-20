@@ -29,6 +29,7 @@ import { OutmoneyPage } from '../pages/outmoney/outmoney';
 import { ShowresultPage } from '../pages/showresult/showresult';
 import { HowtoSlotPage } from '../pages/howto-slot/howto-slot';
 import { HowtoScratchPage } from '../pages/howto-scratch/howto-scratch';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @NgModule({
   declarations: [
     MyApp,
@@ -90,6 +91,7 @@ import { HowtoScratchPage } from '../pages/howto-scratch/howto-scratch';
     StatusBar,
     SplashScreen,
     HttpClient,
+    ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SharedDataProvider
   ]
