@@ -11,4 +11,5 @@ export class Ticket {
     isplayed:boolean;
     setnumber:number;
     num:number[];
+    textAward:string;
 }

@@ -25,6 +25,7 @@ import { ScrathGamePage } from '../scrath-game/scrath-game';
 export class TicketPage {
   
   ticketCount: number;
+  textAward:string;
   chanceCoin: number;
   rand: any;
   setnumber: any;
@@ -141,26 +142,31 @@ export class TicketPage {
     switch (this.setnumber) {
       case "8": {
         this.NumScratch = [2, 1, 35, 28, 51];
+        this.textAward = "Scratch Award 9";
         this.presentToast("case 8 duo");
         console.log(this.NumScratch);
         break;
       } case "9": {
         this.NumScratch = [44, 40, 35, 31, 21];
+        this.textAward = "Scratch Award 9";
         this.presentToast("case 9 duo");
         console.log(this.NumScratch);
         break;
       } case "10": {
         this.NumScratch = [22, 37, 27, 17, 9];
+        this.textAward = "Scratch Award 9";
         this.presentToast("case 10 duo");
         console.log(this.NumScratch);
         break;
       } case "11": {
         this.NumScratch = [13, 1, 35, 18, 52];
+        this.textAward = "Scratch Award 9";
         this.presentToast("case 11 duo");
         console.log(this.NumScratch);
         break;
       } case "12": {
         this.NumScratch = [37, 38, 21, 11, 3];
+        this.textAward = "Scratch Award 9";
         this.presentToast("case 12 duo");
         console.log(this.NumScratch);
         break;
@@ -178,26 +184,31 @@ export class TicketPage {
     switch (this.setnumber) {
       case "13": {
         this.NumScratch = [2, 22, 28, 11, 35];
+        this.textAward = "Scratch Award 8";
         this.presentToast("case 13 duo2");
         console.log(this.NumScratch);
         break;
       } case "14": {
         this.NumScratch = [22, 11, 21, 24, 9];
+        this.textAward = "Scratch Award 8";
         this.presentToast("case 14 duo2");
         console.log(this.NumScratch);
         break;
       } case "15": {
         this.NumScratch = [1, 50, 35, 11, 40];
+        this.textAward = "Scratch Award 8";
         this.presentToast("case 15 duo2");
         console.log(this.NumScratch);
         break;
       } case "16": {
         this.NumScratch = [19, 20, 27, 14, 45];
+        this.textAward = "Scratch Award 8";
         this.presentToast("case 16 duo2");
         console.log(this.NumScratch);
         break;
       } case "17": {
         this.NumScratch = [52, 24, 25, 38, 13];
+        this.textAward = "Scratch Award 8";
         this.presentToast("case 17 duo2");
         console.log(this.NumScratch);
         break;
@@ -215,21 +226,25 @@ export class TicketPage {
     switch (this.setnumber) {
       case "18": {
         this.NumScratch = [4, 16, 17, 38, 43];
+        this.textAward = "Scratch Award 7";
         this.presentToast("case 18 tong");
         console.log(this.NumScratch);
         break;
       } case "19": {
         this.NumScratch = [46, 24, 33, 2, 20];
+        this.textAward = "Scratch Award 7";
         this.presentToast("case 19 tong");
         console.log(this.NumScratch);
         break;
       } case "20": {
         this.NumScratch = [26, 39, 1, 18, 52];
+        this.textAward = "Scratch Award 7";
         this.presentToast("case 20 tong");
         console.log(this.NumScratch);
         break;
       } case "21": {
         this.NumScratch = [36, 23, 10, 38, 7];
+        this.textAward = "Scratch Award 7";
         this.presentToast("case 21 tong");
         console.log(this.NumScratch);
         break;
@@ -246,16 +261,19 @@ export class TicketPage {
     switch (this.setnumber) {
       case "22": {
         this.NumScratch = [2, 29, 17, 44, 19];
+        this.textAward = "Scratch Award 6";
         this.presentToast("case 22 stage");
         console.log(this.NumScratch);
         break;
       } case "23": {
         this.NumScratch = [20, 21, 35, 49, 11];
+        this.textAward = "Scratch Award 6";
         this.presentToast("case 23 stage");
         console.log(this.NumScratch);
         break;
       } case "24": {
         this.NumScratch = [35, 23, 24, 12, 52];
+        this.textAward = "Scratch Award 6";
         this.presentToast("case 24 stage");
         console.log(this.NumScratch);
         break;
@@ -271,41 +289,48 @@ export class TicketPage {
     this.setnumber = this.rand;
     switch (this.setnumber) {
       case "1": {
-        this.NumScratch = [1, 32, 42, 13, 5];
+        this.NumScratch = [1, 32, 42, 13, 5, 22, 25, 39, 40];
+        this.textAward = "No Award";
         this.presentToast("case 1 high");
         console.log(this.NumScratch);
         break;
       }
       case "2": {
-        this.NumScratch = [26, 19, 8, 28, 36];
+        this.NumScratch = [26, 19, 8, 28, 36, 22, 25, 39, 40];
+        this.textAward = "No Award";
         this.presentToast("case 2 high");
         console.log(this.NumScratch);
         break;
       }
       case "3": {
-        this.NumScratch = [6, 2, 39, 40, 22];
+        this.NumScratch = [6, 2, 39, 40, 22, 22, 25, 39, 40];
+        this.textAward = "No Award";
         this.presentToast("case 3 high");
         console.log(this.NumScratch);
         break;
       }
       case "4": {
-        this.NumScratch = [24, 52, 30, 21, 5];
+        this.NumScratch = [24, 52, 30, 21, 5, 22, 25, 39, 40];
+        this.textAward = "No Award";
         this.presentToast("case 4 high");
         console.log(this.NumScratch);
         break;
       }
       case "5": {
-        this.NumScratch = [22, 12, 33, 14, 2];
+        this.NumScratch = [22, 12, 33, 14, 2, 22, 25, 39, 40];
+        this.textAward = "No Award";
         this.presentToast("case 5 high");
         console.log(this.NumScratch);
         break;
       } case "6": {
-        this.NumScratch = [23, 29, 37, 40, 38];
+        this.NumScratch = [23, 29, 37, 40, 38, 22, 25, 39, 40];
+        this.textAward = "No Award";
         this.presentToast("case 6 high");
         console.log(this.NumScratch);
         break;
       } case "7": {
-        this.NumScratch = [41, 31, 35, 23, 51];
+        this.NumScratch = [41, 31, 35, 23, 51, 22, 25, 39, 40];
+        this.textAward = "No Award";
         this.presentToast("case 7 high");
         console.log(this.NumScratch);
         break;
@@ -357,11 +382,11 @@ export class TicketPage {
     this.ticket.isplayed = false;
     this.ticket.date = this.date;
     this.ticket.time = this.time;
+    this.ticket.textAward = this.textAward;
     this.ticket.serialnumber = this.count;
     this.count++;
 
     if (this.ticket.game = this.sl) {
-
       this.ticket.no = this.countsl + 1;
       this.countsl++;
     }

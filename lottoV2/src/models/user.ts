@@ -7,6 +7,7 @@ export class User {
     eth: number;
     money: number;
     coin: number;
+    
 }
 
 
