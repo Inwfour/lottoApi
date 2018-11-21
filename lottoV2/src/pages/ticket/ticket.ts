@@ -346,21 +346,21 @@ export class TicketPage {
         console.log(this.ticketAmount, " reward 8")
         this.award8Scratch();
         this.postticket();
-      } else if (this.ticketAmount % 800 == 0) {  
-        console.log(this.ticketAmount,"reward 6")
+      } else if (this.ticketAmount % 960 == 0) {
+        console.log(this.ticketAmount, "reward 6")
         this.award6Scratch();
         this.postticket();
-        this.ticketAmount=0;
-      }else if(this.ticketAmount%160==0){
-        console.log(this.ticketAmount,"reward 7")
+        this.ticketAmount = 0;
+      } else if (this.ticketAmount % 160 == 0) {
+        console.log(this.ticketAmount, "reward 7")
         this.award7Scratch();
         this.postticket();
-      }else if(this.ticketAmount%30==0){
-        console.log(this.ticketAmount,"reward 8")
+      } else if (this.ticketAmount % 30 == 0) {
+        console.log(this.ticketAmount, "reward 8")
         this.award8Scratch();
         this.postticket();
-      }else if(this.ticketAmount%5==0){
-        console.log(this.ticketAmount,"reward 9")
+      } else if (this.ticketAmount % 5 == 0) {
+        console.log(this.ticketAmount, "reward 9")
         this.award9Scratch();
         this.postticket();
       }
