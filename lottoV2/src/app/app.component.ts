@@ -25,7 +25,11 @@ export class MyApp {
      // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
       this.splashScreen.hide();
 
-
+      if(this.platform.is('cordova')){
+        this.platform.ready().then(()=>{
+         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        })
+      }
     });
   }
   nextS() {

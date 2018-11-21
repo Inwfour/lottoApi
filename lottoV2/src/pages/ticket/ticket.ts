@@ -86,7 +86,7 @@ export class TicketPage {
         this.countSerialsl = data.length;
 
       });
-      this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/GetticketGame/fs")
+    this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/GetticketGame/fs")
       .subscribe((data) => {
         this.countSerialfs = data.length;
 
@@ -335,36 +335,34 @@ export class TicketPage {
       }
     }
   }
-
-  checkticketScratch() {
-    //get ticket from database
-
+  newCheckTicketScratch() {
     for (let i = 1; i <= this.ticketCount; i++) {
-      this.ticketAmount = (this.countsl + i);
-      // this.ticketAmount = +1;
-      if (this.ticketAmount == 5 || this.ticketAmount == 15 || this.ticketAmount == 20 || this.ticketAmount == 25
-        || this.ticketAmount == 30 || this.ticketAmount == 40 || this.ticketAmount == 45 || this.ticketAmount == 50
-        || this.ticketAmount == 55 || this.ticketAmount == 60) {
+      this.ticketAmount = (this.countsl + 1);
+      if (this.ticketAmount == 5) {
         console.log(this.ticketAmount, " reward 9")
         this.award9Scratch();
         this.postticket();
-
-      } else if (this.ticketAmount == 10 || this.ticketAmount == 35 || this.ticketAmount == 65 || this.ticketAmount == 95
-        || this.ticketAmount == 125 || this.ticketAmount == 155) {
+      } else if (this.ticketAmount == 10) {
         console.log(this.ticketAmount, " reward 8")
         this.award8Scratch();
         this.postticket();
-
-      } else if (this.ticketAmount == 160 || this.ticketAmount == 320 || this.ticketAmount == 480 || this.ticketAmount == 640) {
-        console.log(this.ticketAmount, " reward 7")
-        this.award7Scratch();
-        this.postticket();
-
-      } else if (this.ticketAmount == 800 || this.ticketAmount == 1600 || this.ticketAmount == 2400) {
-        console.log(this.ticketAmount, " reward 6")
+      } else if (this.ticketAmount % 800 == 0) {  
+        console.log(this.ticketAmount,"reward 6")
         this.award6Scratch();
         this.postticket();
-
+        this.ticketAmount=0;
+      }else if(this.ticketAmount%160==0){
+        console.log(this.ticketAmount,"reward 7")
+        this.award7Scratch();
+        this.postticket();
+      }else if(this.ticketAmount%30==0){
+        console.log(this.ticketAmount,"reward 8")
+        this.award8Scratch();
+        this.postticket();
+      }else if(this.ticketAmount%5==0){
+        console.log(this.ticketAmount,"reward 9")
+        this.award9Scratch();
+        this.postticket();
       }
       else {
         console.log(" no reward ")
@@ -399,11 +397,7 @@ export class TicketPage {
       .subscribe(data => {
 
       });
-
   }
-
-
-
   nextConfirm() {
     if (this.ticketCount > this.user.coin) {
       this.navCtrl.push(TabsPage, { checknum: 1 });
@@ -412,7 +406,6 @@ export class TicketPage {
       alert("Your coin null");
     }
     else {
-
       this.history.date = this.date;
       this.history.time = this.time;
       this.history.type = 1;
@@ -420,12 +413,12 @@ export class TicketPage {
       if (this.history.game = this.sl) {
         this.history.detailgame = "Scratch Poker"
         this.history.amouth = "Buy " + this.ticketCount;
-        this.checkticketScratch();
+        this.newCheckTicketScratch();
       }
       else if (this.history.game = this.fs) {
         this.history.detailgame = "Fruity Slot"
         this.history.amouth = "Buy " + this.ticketCount;
-        this.checkticketScratch();
+        this.newCheckTicketScratch();
       }
       // let TIME_IN_MS = 5000;
       // let hideFooterTimeout = setTimeout( () => {
@@ -434,7 +427,6 @@ export class TicketPage {
 
         });
       // }, TIME_IN_MS);
-
       this.user.coin = (Number)(this.user.coin) - (Number)(this.chanceCoin);
       this.http.post(GlobalVarible.host + "/api/User/Edit", JSON.stringify(this.user), GlobalVarible.httpOptions)
         .subscribe(data => {
