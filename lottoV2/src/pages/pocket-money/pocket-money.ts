@@ -44,6 +44,7 @@ export class PocketMoneyPage {
   }
 
   ionViewWillEnter() {
+    console.log("pocketMoney-page")
     this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
     .subscribe((data) => {
         this.user = data;

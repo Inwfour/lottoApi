@@ -92,14 +92,10 @@ export class OutmoneyPage {
                 .subscribe(data => {
                   this.navCtrl.pop();
                 });
-
-
-
             } else {
               alert("Not found username");
             }
           });
-
       } else {
         alert("Money Over");
       }

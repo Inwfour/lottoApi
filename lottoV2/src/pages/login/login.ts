@@ -22,35 +22,33 @@ import { WebPage } from '../web/web';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  name:any;
-  password:any;
-  constructor(private shared:SharedDataProvider, public http:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
-      
+  name: any;
+  password: any;
+  constructor(private shared: SharedDataProvider, public http: HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewWillEnter() {
+    console.log("login-page")
     this.name = null;
     this.password = null;
-}
+  }
 
-  nextHome(){
+  nextHome() {
     this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.name + "/" + this.password)
-    .subscribe(data => {
-      this.shared.User = data;
-      if(data == null){
-        alert("not wrong");
-      }else{
-        this.navCtrl.push(TabsPage);
-      }
-    });
-
+      .subscribe(data => {
+        this.shared.User = data;
+        if (data == null) {
+          alert("not wrong");
+        } else {
+          this.navCtrl.push(TabsPage);
+        }
+      });
   }
-  register(){
-
-        this.navCtrl.push(RegisterPage);
-
+  register() {
+    this.navCtrl.push(RegisterPage);
   }
-  money(){
+  money() {
     this.navCtrl.push(WebPage);
   }
 }

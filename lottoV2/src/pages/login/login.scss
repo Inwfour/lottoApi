@@ -1,13 +1,15 @@
 
 page-login {
 
-    .scroll-content {
-        overflow-y: hidden;
-    }
-    .list {
-        padding: 50px;
+    // $height100: 100%;
+    // .scroll-content {
+    //     overflow-y: hidden;
+    // }
+    // .list {
+    //     height: $height100;
 
-    }
+    // }
+    
     .label-lotto {
         font-size: 50px;
         color: white;
@@ -32,5 +34,21 @@ page-login {
     .btn-register {
         border-radius: 50px;
         background-color: blue
+    }
+  
+}
+$height100: 90%;
+ion-grid {
+    width:100%;
+    height: $height100;
+}
+
+ion-row {
+    height: $height100;
+}
+@media (min-width: 240px) and (max-width: 768px) {
+
+    ion-col {
+        border: none;
     }
 }

@@ -55,6 +55,7 @@ export class ScrathGamePage {
   
 
   ionViewWillEnter() {
+    console.log("scrathGame-page")
     // this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     // .subscribe((data) => {
     //   this.ticket = data;

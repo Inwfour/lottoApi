@@ -70,6 +70,13 @@ namespace lottoApi.Controllers
             return Collection.Find(x => x.RefId == id && x.Game == game).SortBy(x => x.No).ToList();
         }
 
+        [HttpGet("[action]/{game}")]
+        public IEnumerable<Ticket> GetticketGame(string game)
+        {
+
+            return Collection.Find(x => x.Game == game).ToList();
+        }
+
         [HttpGet("[action]/{id}/{game}/{isPlayed}")]
         public IEnumerable<Ticket> Getstatus(string id, string game,bool isPlayed)
         {

@@ -11,6 +11,7 @@ namespace lottoApi.Models
         public string Game { get; set; }
         public int Collection { get; set; }
         public int Award { get; set; }
+        public string TextAward { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
         public bool IsPlayed { get; set; }

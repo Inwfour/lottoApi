@@ -52,6 +52,7 @@ export class FruityGamePage {
   
 
   ionViewWillEnter() {
+    console.log("fruityGame")
     // this.http.get<Ticket[]>(GlobalVarible.host + "/api/Ticket/Getticket/" + this.user.id + "/sl")
     // .subscribe((data) => {
     //   this.ticket = data;
