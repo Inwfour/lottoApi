@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { TicketPage } from '../ticket/ticket';
 import { SharedDataProvider } from '../../providers/shared-data/shared-data';
 import { Ticket } from '../../models/ticket';
@@ -29,7 +29,7 @@ export class ScrathGamePage {
   sl="sl";
   count:number;
   card:any;
-  constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams,private shared:SharedDataProvider) {
+  constructor(public http:HttpClient, public navCtrl: NavController, public navParams: NavParams,private shared:SharedDataProvider,public modalCtrl: ModalController) {
     this.user = shared.User;
 
   }
@@ -76,6 +76,15 @@ export class ScrathGamePage {
 
   nextTicket(sl:string){
     this.navCtrl.push(TicketPage,{sl:this.sl});
+  }
+
+  goToResult(id:string){
+    this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Get/" + id)
+    .subscribe((data) => {
+      this.shared.Ticket = data;  
+      var modalPage = this.modalCtrl.create('ModalSuccessPage', { selectedBlock: data.num, }); modalPage.present(); 
+
+    });
   }
 
   NextGame(id:string){

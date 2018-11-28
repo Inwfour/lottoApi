@@ -2,6 +2,7 @@ page-scratch-game-play {
     canvas {
         display: block;
         border: 1px solid rgb(187, 178, 178);
+        
     }
     .color-block {
         height: 40px;
@@ -9,5 +10,15 @@ page-scratch-game-play {
 
     .btn-reveal {
         border-radius: 50px;
+    }
+
+    .scroll-content {
+        overflow: hidden !important;
+    }
+
+    ion-col {
+        margin:0;
+        padding:0;
+
     }
 }

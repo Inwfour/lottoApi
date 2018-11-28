@@ -4,7 +4,6 @@ export class Ticket {
     no: number;
     serialnumber: number;
     collection: number;
-    award: number;
     game: string;
     date: string;
     time: string;
@@ -13,5 +12,5 @@ export class Ticket {
     num: number[];
     textAward: string;
     coinAward: number;
-    ticketAward: number;
+
 }

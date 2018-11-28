@@ -48,7 +48,7 @@
 
         </ion-card>
         <ion-card style="background-color: gray;border-radius: 10px" *ngFor="let t of ticket2">
-            <ion-row style="padding:3px">
+            <ion-row style="padding:3px" (click)="goToResult(t.id)">
                 <ion-col col-3>
                     <ion-label style="color: white">No. {{t.no}}</ion-label>
                 </ion-col>

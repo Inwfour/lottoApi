@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 import { TicketScrathPage } from '../ticket-scrath/ticket-scrath';
@@ -24,7 +24,7 @@ import { WebPage } from '../web/web';
 export class LoginPage {
   name: any;
   password: any;
-  constructor(private shared: SharedDataProvider, public http: HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private loadingCtrl:LoadingController, private alertCtrl:AlertController, private shared: SharedDataProvider, public http: HttpClient, public navCtrl: NavController, public navParams: NavParams) {
 
   }
 
@@ -35,16 +35,36 @@ export class LoginPage {
   }
 
   nextHome() {
-    this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.name + "/" + this.password)
+    if (this.name == null || this.name == "" || this.password == null || this.password == "") {
+      let alert = this.alertCtrl.create({
+        title: 'LOGIN FAILED',
+        subTitle: 'Please check id and password.',
+        buttons: ['OK']
+      });
+      alert.present();
+    }else{
+
+      this.http.get<User>(GlobalVarible.host + "/api/User/Get/" + this.name + "/" + this.password)
       .subscribe(data => {
         this.shared.User = data;
         if (data == null) {
-          alert("not wrong");
+
+          let alert = this.alertCtrl.create({
+            title: 'LOGIN FAILED',
+            subTitle: 'Not wrong your user.',
+            buttons: ['OK']
+          });
+          alert.present();
+
         } else {
           this.navCtrl.push(TabsPage);
         }
       });
+
+    }
   }
+
+
   register() {
     this.navCtrl.push(RegisterPage);
   }

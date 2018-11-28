@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { History } from '../../models/history';
 import { GlobalVarible } from '../../app/models';
@@ -27,7 +27,7 @@ export class BuycoinPage {
   date: string = new Date().toLocaleDateString();
   chanceMoney: any = 0;
   color: any = "green";
-  constructor(public navCtrl: NavController, public navParams: NavParams, public shared: SharedDataProvider,
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public shared: SharedDataProvider,
     public http: HttpClient) {
     this.user = this.shared.User;
     this.history = this.shared.History;
@@ -63,39 +63,75 @@ export class BuycoinPage {
   buyCoin() {
     if (this.coinCount > 0) {
       if (this.coinCount * 10 > this.user.money) {
-        alert("Your money is not enough.");
-        this.navCtrl.push(TabsPage, { checknum: 1 });
+        let alert = this.alertCtrl.create({
+          title: 'FAILED !!!',
+          subTitle: 'Your money is not enough.',
+          buttons: [{
+            text: 'OK',
+            handler: () => {
+              this.navCtrl.push(TabsPage, { checknum: 1 });
+            }
+          }]
+        });
+        alert.present();
+
       } else if (this.coinCount == null || this.coinCount == 0) {
-        alert("Your coin null");
+        let alert = this.alertCtrl.create({
+          title: 'FAILED !!!',
+          subTitle: 'Please check coin.',
+          buttons: ['OK']
+        });
+        alert.present();
       }
       else {
-        this.history.date = this.date;
-        this.history.time = this.time;
-        this.history.type = 1;
-        this.history.img = "../../assets/imgs/Coin.png"
-        this.history.amouth = this.coinCount;
-        this.history.game = "coin";
-        // this.history.detailgame = "Use " + this.chanceMoney + " Baht";
-        this.history.detailgame = "Buy";
-        this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
-          .subscribe(data => {
+        let alert = this.alertCtrl.create({
+          title: 'CONFIRM',
+          message: 'Buy ' + this.coinCount + ' Coin',
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: () => {
 
-          });
-
-        this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
-          .subscribe((data) => {
-            this.user = data;
-            this.user.money = (Number)(this.user.money) - (Number)(this.chanceMoney);
-            this.user.coin = (Number)(this.user.coin) + (Number)(this.coinCount);
-            this.http.post(GlobalVarible.host + "/api/User/Edit", JSON.stringify(this.user), GlobalVarible.httpOptions)
-              .subscribe(data => {
-                alert("success !!!");
-                this.navCtrl.push(TabsPage, { checknum: 1 });
-              });
-          });
-      }
+              }
+            },
+            {
+              text: 'Buy',
+              handler: () => {
+                this.history.date = this.date;
+                this.history.time = this.time;
+                this.history.type = 1;
+                this.history.img = "../../assets/imgs/Coin.png"
+                this.history.amouth = this.coinCount;
+                this.history.game = "coin";
+                // this.history.detailgame = "Use " + this.chanceMoney + " Baht";
+                this.history.detailgame = "Buy";
+                this.http.post(GlobalVarible.host + "/api/History/Create", JSON.stringify(this.history), GlobalVarible.httpOptions)
+                  .subscribe(data => {
+                  });
+                this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
+                  .subscribe((data) => {
+                    this.user = data;
+                    this.user.money = (Number)(this.user.money) - (Number)(this.chanceMoney);
+                    this.user.coin = (Number)(this.user.coin) + (Number)(this.coinCount);
+                    this.http.post(GlobalVarible.host + "/api/User/Edit", JSON.stringify(this.user), GlobalVarible.httpOptions)
+                      .subscribe(data => {
+                        this.navCtrl.push(TabsPage, { checknum: 1 });
+                      }); //END API EDIT
+                  }); //END API SEARCH
+              }
+            }
+          ]
+        });
+        alert.present();
+      } //END ELSE ALERT CONFIRM
     } else {
-      alert("money < 0");
+      let alert = this.alertCtrl.create({
+        title: 'FAILED !!!',
+        subTitle: 'Please check coin.',
+        buttons: ['OK']
+      });
+      alert.present();
     }
   }
 
