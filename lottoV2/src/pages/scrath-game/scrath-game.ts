@@ -90,7 +90,10 @@ export class ScrathGamePage {
   NextGame(id:string){
     this.http.get<Ticket>(GlobalVarible.host + "/api/Ticket/Get/" + id)
     .subscribe((data) => {
-      this.shared.Ticket = data;  
+      this.shared.Ticket = data;
+      for(let i =0 ;i<4;i++){
+        this.shared.Ticket.num.push(Math.floor(Math.random() * 52) + 1 );
+      }  
       console.log(this.shared.Ticket);
       this.navCtrl.push(ScratchGamePlayPage);    
     });

@@ -17,9 +17,9 @@
   <ion-grid>
     <ion-row>
       <ion-col style="text-align:center">
-          <ion-label style="text-align: center;font-size: 20px;color: red">
-              Congratulation !!!
-          </ion-label>
+        <ion-label style="text-align: center;font-size: 30px;color: red">
+          WIN !!!
+        </ion-label>
         <img src="../../assets/imgs/gift.gif">
       </ion-col>
     </ion-row>
@@ -27,22 +27,24 @@
     <ion-row>
       <ion-col col-1></ion-col>
       <ion-col col-2 *ngFor="let block of selectedSrc | slice:0:5;let i = index" style="text-align:center">
-        <img src="{{block}}" >
+        <img src="{{block}}">
       </ion-col>
       <ion-col col-1></ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-label style="text-align: center;font-size: 20px;color: red">
-            Award : {{ticket.textAward}}
+          Award : {{ticket.textAward}}
         </ion-label>
-        <ion-label style="text-align: center;font-size: 20px;color: red">
-            Amount : {{ticket.coinAward}}
-        </ion-label>
+        <p style="text-align: center;font-size: 20px;color: red">
+          Amount : {{answer}}
+          <img [src]="imgs" width="30px">
+        </p>
+
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
 <ion-footer style="padding:0%">
-     <button color="dark" (click)="backToTicket(fs)" ion-button full>Confirm</button>
+  <button style="background-color: green" (click)="backToTicket(fs)" ion-button full>Confirm</button>
 </ion-footer>

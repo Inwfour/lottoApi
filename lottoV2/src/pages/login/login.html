@@ -1,8 +1,16 @@
-<ion-content padding no-bounce center text-center style="background: url('../../assets/imgs/login.jpg') no-repeat center center fixed;background-size: cover;overflow-y: hidden !important;">
+<ion-content padding no-bounce center text-center class="scroll-content" style="
+  background: url('../../assets/imgs/loginbg.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow-y: hidden !important;
+  ">
     <ion-grid>
-        <ion-row justify-content-center>
+        <ion-row>
+            <ion-col>
+                <img src="../../assets/imgs/logobg.png" style="width:90%">
+            </ion-col>
+        </ion-row>
+        <ion-row justify-content-center style="margin-top: -5%">
             <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-                <ion-label class="label-lotto">LOTTO</ion-label>
                 <ion-item class="item-user">
                     <ion-label>
                         <ion-icon name="md-contact"></ion-icon>
@@ -15,8 +23,12 @@
                     </ion-label>
                     <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
                 </ion-item>
+                <div class="container-login100-form-btn">
                 <button class="btn-login" ion-button block (click)="nextHome()">Login</button>
+            </div>
+            <div class="container-login100-form-btn">
                 <button class="btn-register" ion-button block (click)="register()">Register</button>
+            </div>
                 <button ion-button block style="background-color: firebrick" (click)="money()">เติมเงิน</button>
             </ion-col>
         </ion-row>

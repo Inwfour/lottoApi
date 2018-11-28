@@ -49,6 +49,8 @@ export class TicketPage {
   ticketAmount: number;
   color: any = "green";
   tab2Root = PocketMoneyPage;
+  noHistory:any;
+  noHistoryAlarm:any;
 
   constructor(public Toast: ToastController,
     public navCtrl: NavController,
@@ -107,6 +109,12 @@ export class TicketPage {
       .subscribe((data) => {
         this.user = data;
       });
+
+      this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/1")
+      .subscribe((data) => {
+        this.noHistory = data.length;
+      });
+
   }
   //Ticket -> Coin
   checkTicket() {
@@ -376,7 +384,7 @@ export class TicketPage {
         this.postticket();
       }
       else {
-        console.log(" no reward ")
+        console.log("no reward ")
         this.nowardScratch();
         this.postticket();
       }
@@ -457,6 +465,7 @@ export class TicketPage {
               this.history.date = this.date;
               this.history.time = this.time;
               this.history.type = 1;
+              this.history.no = this.noHistory + 1;
               this.history.img = "../../assets/imgs/Ticket.png"
               if (this.history.game = this.sl) {
                 this.history.detailgame = "Scratch Poker"

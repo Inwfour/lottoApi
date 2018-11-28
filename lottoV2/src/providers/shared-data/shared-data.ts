@@ -19,9 +19,4 @@ export class SharedDataProvider {
   constructor(public http: HttpClient) {
     console.log('Hello SharedDataProvider Provider');
   }
-
-
-
- 
-
 }
