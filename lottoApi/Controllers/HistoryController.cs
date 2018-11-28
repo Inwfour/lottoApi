@@ -56,7 +56,7 @@ namespace lottoApi.Controllers
         [HttpGet("[action]/{id}/{type}")]
         public IEnumerable<History> GetHistory(string id, int type)
         {
-            return Collection.Find(x => x.RefId == id && x.Type == type).SortByDescending(x => x.Date).SortByDescending(x => x.Time).ToList();
+            return Collection.Find(x => x.RefId == id && x.Type == type).SortByDescending(x => x.No).ToList();
         }
 
         // [HttpGet("[action]/{id}")]

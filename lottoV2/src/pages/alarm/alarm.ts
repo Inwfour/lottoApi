@@ -30,7 +30,6 @@ export class AlarmPage {
   }
 
   ionViewWillEnter() {
-    console.log("alarm-page")
     this.http.get<History>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/2")
       .subscribe((data) => {
         this.history = data;

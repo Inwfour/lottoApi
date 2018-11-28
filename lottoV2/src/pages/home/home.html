@@ -13,13 +13,13 @@
             </ion-col>
             <ion-col col-12 style="margin-top:5px">
                 <button (click)="nextTicketsl(sl)" class="img-bottom" ion-button>Buy Ticket</button>
-                <label class="img-bottom-left-label" width="100%">{{countsl}}</label>
+                <label class="img-bottom-left-label" width="100%">{{countsl | number : fractionSize}}</label>
                 <img class="img-bottom-left" width="100%" src="../../assets/imgs/Ticket.png">
                 <img width="100%" src="../../assets/imgs/g1.png" (click)="nextGame()">
             </ion-col>
             <ion-col col-12 style="margin-top:5px">
                 <button (click)="nextTicketfs(fs)" class="img-bottom" ion-button>Buy Ticket</button>
-                <label class="img-bottom-left-label">{{countfs}}</label>
+                <label class="img-bottom-left-label">{{countfs | number : fractionSize}}</label>
                 <img class="img-bottom-left" width="100%" src="../../assets/imgs/Ticket.png">
                 <img width="100%" src="../../assets/imgs/g2.png" (click)="nextFruity()">
                 

@@ -5,6 +5,7 @@ namespace lottoApi.Models
     public class History
     {
         public string Id { get; set; }
+        public int No { get; set; }
         public int Type { get; set; }
         public string Img { get; set; }
         public string RefId { get; set; }

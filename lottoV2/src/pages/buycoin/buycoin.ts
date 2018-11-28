@@ -27,6 +27,8 @@ export class BuycoinPage {
   date: string = new Date().toLocaleDateString();
   chanceMoney: any = 0;
   color: any = "green";
+  noHistory:any;
+
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public shared: SharedDataProvider,
     public http: HttpClient) {
     this.user = this.shared.User;
@@ -47,6 +49,11 @@ export class BuycoinPage {
     this.http.get<User>(GlobalVarible.host + "/api/User/Getdoc/" + this.user.id)
       .subscribe((data) => {
         this.user = data;
+      });
+
+      this.http.get<History[]>(GlobalVarible.host + "/api/History/GetHistory/" + this.user.id + "/1")
+      .subscribe((data) => {
+        this.noHistory = data.length;
       });
   }
 
@@ -101,6 +108,8 @@ export class BuycoinPage {
                 this.history.date = this.date;
                 this.history.time = this.time;
                 this.history.type = 1;
+                this.history.no = this.noHistory + 1;
+
                 this.history.img = "../../assets/imgs/Coin.png"
                 this.history.amouth = this.coinCount;
                 this.history.game = "coin";

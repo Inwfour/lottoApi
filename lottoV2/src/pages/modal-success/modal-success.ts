@@ -20,22 +20,33 @@ export class ModalSuccessPage {
   selectedBlock: number[] = new Array();
   selectedSrc: string[] = new Array();
   ticket: Ticket;
-
+  imgs:any;
+  answer:any;
   constructor(private shared: SharedDataProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.ticket = this.shared.Ticket;
-  
+
+    if(this.ticket.coinAward == 1){
+      this.imgs = "../../assets/imgs/Ticket.png";
+      this.answer = "Free 1 ";
+    }else if(this.ticket.coinAward < 1){
+      this.imgs = "";
+      this.answer = "Not award."
+    }else{
+      this.answer = "Free " + this.ticket.coinAward;
+      this.imgs = "../../assets/imgs/Coin.png";
+    }
+
     this.selectedBlock = navParams.get('selectedBlock');
     for (var i = 0; i < 5; i++) {
       this.selectedSrc.push("../../assets/card/" + this.selectedBlock[i] + ".png")
     }
-    console.log(this.selectedBlock);
   }
 
 
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ModalSuccessPage');
+
   }
 
   backToTicket(fs: string) {

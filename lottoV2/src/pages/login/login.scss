@@ -31,23 +31,96 @@ page-login {
         border-radius: 50px;
         margin-bottom: 50px;
     }
+    .container-login100-form-btn {
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     .btn-login {
-        border-radius: 50px;
-        background-color: green
+            font-family: Poppins-Medium;
+            font-size: 16px;
+            color: #fff;
+            line-height: 1.2;
+            text-transform: uppercase;
+          
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+            height: 50px;
+            background-color: rgb(13, 122, 13);
+            border-radius: 25px;
+          
+            box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+            -moz-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+            -webkit-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+            -o-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+            -ms-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+          
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            transition: all 0.4s;
+          }
+          
+          .btn-login:hover  {
+            background-color: #0d4118;
+            box-shadow: 0 10px 30px 0px #114d1e;
+            -moz-box-shadow: 0 10px 30px 0px #114d1e;
+            -webkit-box-shadow: 0 10px 30px 0px #114d1e;
+            -o-box-shadow: 0 10px 30px 0px #114d1e;
+            -ms-box-shadow: 0 10px 30px 0px #114d1e;
+ 
     }
     .btn-register {
-        border-radius: 50px;
-        background-color: blue
+        font-family: Poppins-Medium;
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.2;
+        text-transform: uppercase;
+      
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        width: 100%;
+        height: 50px;
+        background-color: rgb(40, 52, 122);
+        border-radius: 25px;
+
+      
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+      
+      
+      .btn-login:hover  {
+        background-color: #0e0830;
+        box-shadow: 0 10px 30px 0px #0e0830;
+        -moz-box-shadow: 0 10px 30px 0px #0e0830;
+        -webkit-box-shadow: 0 10px 30px 0px #0e0830;
+        -o-box-shadow: 0 10px 30px 0px #0e0830;
+        -ms-box-shadow: 0 10px 30px 0px #0e0830;
+
+}
     }
-    $height100: 90%;
-    ion-grid {
-        width:100%;
-        height: $height100;
-    }
-    
-    ion-row {
-        height: $height100;
-    }
+
+  
     @media (min-width: 240px) and (max-width: 768px) {
     
         ion-col {
