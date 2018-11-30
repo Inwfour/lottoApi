@@ -14,15 +14,16 @@
 
 
 <ion-content padding>
-    <ion-list ion-item  *ngFor="let h of history">   
-      <ion-item no-lines (click)="nextHistory(h.game)">
-          <div no-padding item-start>
+    <ion-list ion-item  *ngFor="let h of history"  style="background-color: transparent">   
+      <ion-item no-lines (click)="nextHistory(h.game)" style="background-color: transparent">
+          <div no-padding item-start >
             <img [src]="h.img" width="50px" >
           </div>
           <h4>{{ h.amouth}}</h4>
-          <h4 style="color:grey">{{ h.detailGame }}</h4>
-          <ion-note item-end><h4>{{ h.date }}</h4></ion-note>  
+          <h4 style="color:black">{{ h.detailGame }}</h4>
+          <ion-note item-end style="color: black"><h4>{{ h.date }}</h4></ion-note>  
         </ion-item>
+        <hr>
       </ion-list>
       
     

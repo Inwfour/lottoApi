@@ -36,10 +36,14 @@
         <ion-label style="text-align: center;font-size: 20px;color: red">
           Award : {{ticket.textAward}}
         </ion-label>
-        <p style="text-align: center;font-size: 20px;color: red">
+        <div style="text-align: center">
+        <label style="font-size: 20px;color: red">
           Amount : {{answer}}
-          <img [src]="imgs" width="30px">
-        </p>
+        </label>
+        <label>
+            <img  [src]="imgs" width="30px">
+        </label>
+      </div>
 
       </ion-col>
     </ion-row>

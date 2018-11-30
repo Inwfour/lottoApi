@@ -38,29 +38,28 @@
       <label class="c">History</label>
     </div>
   </ion-card><br>
-  <ion-list>
-    <ion-item>
-      <ion-grid>
+  <ion-list class="a1-top">
+    <div>
         <ion-row>
-          <ion-col style="text-align: start">
+          <ion-col style="text-align: center">
             <label class="c1">Date</label>
           </ion-col>
           <ion-col style="text-align: center">
             <label class="c1">Amount</label>
           </ion-col>
-          <ion-col style="text-align: end">
+          <ion-col style="text-align: center">
             <label class="c1">Type</label>
           </ion-col>
         </ion-row>
-      </ion-grid>
-    </ion-item>
+      </div>
+ 
   </ion-list>
 
-  <ion-list ion-item *ngFor="let h of history">
+  <ion-list ion-item style="background-color: transparent" *ngFor="let h of history">
     <ion-grid>
-      <ion-row>
+      <ion-row >
         <ion-col style="text-align: start">
-          <h4><p>{{ h.date }}</p></h4>
+          <h4>{{ h.date }}</h4>
         </ion-col>
         <ion-col style="text-align: right">
           <h4>{{ h.amouth }}</h4>
@@ -68,7 +67,7 @@
         <ion-col style="text-align: left;margin-top: -5px">
           <img [src]="h.img" width="25px">
         </ion-col>
-        <ion-col style="text-align: end">
+        <ion-col style="text-align: center">
           <h4> {{ h.detailGame }}</h4>
         </ion-col>
       </ion-row>
