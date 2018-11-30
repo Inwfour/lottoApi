@@ -116,13 +116,13 @@ noHistory:any;
     this.canvasElement[i].height = 100;
     let ctx = this.canvasElement[i].getContext('2d');
     
-    //ctx.fillStyle = "#666";
-    //ctx.fillRect(0,0,this.canvasElement[i].width, this.canvasElement[i].height);
-    var img = document.createElement('img');
-    img.onload = function() {
-     ctx.drawImage(img, 0, 0);
-};
-img.src="../../assets/imgs/artBoard.jpg";
+    ctx.fillStyle = "#666";
+    ctx.fillRect(0,0,this.canvasElement[i].width, this.canvasElement[i].height);
+//     var img = document.createElement('img');
+//     img.onload = function() {
+//      ctx.drawImage(img, 0, 0);
+// };
+// img.src="../../assets/imgs/artBoard.jpg";
     i++;
     })
 
@@ -448,7 +448,7 @@ img.src="../../assets/imgs/artBoard.jpg";
    
 
       //this.canvasElement[idx].style.boxSizing = "border-box";
-      this.canvasElement[idx].style.border = "2px solid rgb(255, 87, 51)";
+      this.canvasElement[idx].style.border = "4px solid rgb(255, 87, 51)";
       this.isSelected[idx] = true;
       this.selectedBlock.push(idx);
       this.openRemain--;
